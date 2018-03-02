@@ -1,0 +1,4 @@
+export PODIUMPATH=$HOME/Development/podium-local
+export SOUL_CYCLE_SITE=PODIUMPATH/applications/soul-cycle-site
+export LOCALENV=$HOME/Development/localenv
+export CHRONIQLE=$LOCALENV/applications/chroniqle

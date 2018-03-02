@@ -46,8 +46,3 @@ complete -W "NSGlobalDomain" defaults;
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
-
-export PODIUMPATH=$HOME/Development/podium-local
-export SOUL_CYCLE_SITE=PODIUMPATH/applications/soul-cycle-site
-export LOCALENV=$HOME/Development/localenv
-export CHRONIQLE=$LOCALENV/applications/chroniqle
