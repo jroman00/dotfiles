@@ -5,6 +5,17 @@ function git_branch_name() {
   git rev-parse --abbrev-ref HEAD
 }
 
+# Git: Count committed lines per author
+function git_line_count() {
+  if [ -z "$1" ] ; then
+    FILES=`git ls-files .`
+  else
+    FILES=`git ls-files $1`
+  fi
+
+  echo $FILES | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+}
+
 # Git: Prepend current branch name to commit message
 function gcb() {
   BRANCH=$(git_branch_name)
@@ -60,6 +71,37 @@ function gsquash() {
   git stash && git rebase -i HEAD~$1
 }
 
+# Install linux ISO to the selected device
+function install-linux() {
+  if [[ $# -eq 0 ]] ; then
+    echo 'Input file required'
+    exit 1
+  fi
+
+  if [ ! -f $1 ]; then
+      echo "Input file not found."
+      exit 1
+  fi
+
+  lsblk -o NAME,LABEL
+
+  echo ""
+  read -p "Which device would you like install to? " input
+
+  DEVICE=/dev/$input
+
+  if [ ! -b $DEVICE ] ; then
+      echo "Invalid device"
+      exit 1
+  fi
+
+  SIZE=`stat --print="%s" $1`
+
+  date
+  sudo bash -c "dd if=$1 | pv -s $SIZE | dd of=$DEVICE bs=4M"
+  date
+}
+
 # Reset all directory and file permissions to 0775 and 0664, respectively, in the current directory
 function reset-chmod() {
   find . -type d -print0 | xargs -0 chmod 0775
@@ -73,3 +115,24 @@ if [ $? -eq 0 ]; then
     git diff --no-index --color-words "$@";
   }
 fi;
+
+# Wipe selected device by overwriting with random data
+function wipe-device() {
+  lsblk -o NAME,LABEL
+
+  echo ""
+  read -p "Which device would you like to wipe? " input
+
+  DEVICE=/dev/$input
+
+  if [ ! -b $DEVICE ] ; then
+      echo "Invalid device"
+      return
+  fi
+
+  SIZE=`sudo blockdev --getsize64 $DEVICE`
+
+  date
+  sudo bash -c "dd if=/dev/urandom | pv -s $SIZE | dd of=$DEVICE bs=4M"
+  date
+}
