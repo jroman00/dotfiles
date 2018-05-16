@@ -1,4 +1,13 @@
 export PODIUMPATH=$HOME/Development/podium-local
+export GOPATH="$PODIUMPATH/applications/go"
 export SOUL_CYCLE_SITE=$PODIUMPATH/applications/soul-cycle-site
 export LOCALENV=$HOME/Development/localenv
 export CHRONIQLE=$LOCALENV/applications/chroniqle
+
+export GITHUBTOKEN="a0c9d1a15ff81cabc73fd15ab9c4b1285360eb4f";
+export POPS_RELEASE_GITHUB_TOKEN=$GITHUBTOKEN;
+
+export PATH=$PATH:$GOPATH/bin;
+
+# Add RVM to `$PATH`
+export PATH="$PATH:$HOME/.rvm/bin";
