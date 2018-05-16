@@ -39,7 +39,7 @@ alias ga='git add'
 
 alias gpush='git push origin HEAD'
 alias gpull='git pull origin HEAD'
-alias gfp='git fetch --prune && git pull'
+alias gfp='git fetch --prune && git pull origin $(git_branch_name)'
 
 alias gc='git commit -m '
 alias gamend='git commit --amend'
