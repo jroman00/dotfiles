@@ -32,6 +32,7 @@ alias dcstart='docker-compose start'
 alias dcstop='docker-compose stop'
 
 # Git aliases
+alias g='git'
 alias gs='git status'
 alias gdiff='git diff --no-prefix --ignore-all-space'
 alias ga='git add'
