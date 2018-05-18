@@ -18,14 +18,16 @@ function git_line_count() {
 
 # Git: Prepend current branch name to commit message
 function gcb() {
-  BRANCH=$(git_branch_name)
+  readonly CURRENT_BRANCH=$(git_branch_name)
 
-  if [ $BRANCH == "master" ] ; then
+  if [ $CURRENT_BRANCH == "master" ] ; then
     echo "Currently on master"
     return
   fi
 
-  git commit -m "$BRANCH: $1"
+  COMMIT_BRANCH=$(echo "$CURRENT_BRANCH" | sed -E 's/^(feature|hotfix|release)\///')
+
+  git commit -m "$COMMIT_BRANCH: $1"
 }
 
 # Git: Clean current branch after it's been merged
