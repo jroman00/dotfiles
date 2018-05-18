@@ -32,14 +32,14 @@ function gcb() {
 
 # Git: Clean current branch after it's been merged
 function gmerged() {
-  BRANCH=$(git_branch_name)
+  readonly BRANCH=$(git_branch_name)
 
   if [ $BRANCH == "master" ] ; then
     echo "Cannot prune master"
     return
   fi
 
-  TRUNK="master"
+  readonly TRUNK="master"
   FORCE=false
 
   for i in "$@" ; do
