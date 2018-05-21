@@ -10,7 +10,7 @@ fi;
 
 # Git: Prepend current branch name to commit message
 function gcb() {
-  readonly CURRENT_BRANCH=$(git_branch_name)
+  CURRENT_BRANCH=$(git_branch_name)
 
   if [ $CURRENT_BRANCH == "master" ] ; then
     echo "Currently on master"
