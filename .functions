@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
 
+# Use Git’s colored diff when available
+hash git &>/dev/null;
+if [ $? -eq 0 ]; then
+  function diff() {
+    git diff --no-index --color-words "$@";
+  }
+fi;
+
+# Git: Prepend current branch name to commit message
+function gcb() {
+  readonly CURRENT_BRANCH=$(git_branch_name)
+
+  if [ $CURRENT_BRANCH == "master" ] ; then
+    echo "Currently on master"
+    return
+  fi
+
+  COMMIT_BRANCH=$(echo "$CURRENT_BRANCH" | sed -E 's/^(feature|hotfix|release)\///')
+
+  git commit -m "$COMMIT_BRANCH: $1"
+}
+
 # Git: Determine current git branch
 function git_branch_name() {
   git rev-parse --abbrev-ref HEAD
@@ -14,20 +36,6 @@ function git_line_count() {
   fi
 
   echo $FILES | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
-}
-
-# Git: Prepend current branch name to commit message
-function gcb() {
-  readonly CURRENT_BRANCH=$(git_branch_name)
-
-  if [ $CURRENT_BRANCH == "master" ] ; then
-    echo "Currently on master"
-    return
-  fi
-
-  COMMIT_BRANCH=$(echo "$CURRENT_BRANCH" | sed -E 's/^(feature|hotfix|release)\///')
-
-  git commit -m "$COMMIT_BRANCH: $1"
 }
 
 # Git: Clean current branch after it's been merged
@@ -109,14 +117,6 @@ function reset-chmod() {
   find . -type d -print0 | xargs -0 chmod 0775
   find . -type f -print0 | xargs -0 chmod 0664
 }
-
-# Use Git’s colored diff when available
-hash git &>/dev/null;
-if [ $? -eq 0 ]; then
-  function diff() {
-    git diff --no-index --color-words "$@";
-  }
-fi;
 
 # Touch all files under the current directory
 function touch-files() {
