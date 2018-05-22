@@ -10,16 +10,16 @@ fi;
 
 # Git: Prepend current branch name to commit message
 function gcb() {
-  CURRENT_BRANCH=$(git_branch_name)
+  current_branch=$(git_branch_name)
 
-  if [ $CURRENT_BRANCH == "master" ] ; then
+  if [ $current_branch == "master" ] ; then
     echo "Currently on master"
     return
   fi
 
-  COMMIT_BRANCH=$(echo "$CURRENT_BRANCH" | sed -E 's/^(feature|hotfix|release)\///')
+  commit_branch=$(echo "$current_branch" | sed -E 's/^(feature|hotfix|release)\///')
 
-  git commit -m "$COMMIT_BRANCH: $1"
+  git commit -m "$commit_branch: $1"
 }
 
 # Git: Determine current git branch
@@ -30,45 +30,45 @@ function git_branch_name() {
 # Git: Count committed lines per author
 function git_line_count() {
   if [ -z "$1" ] ; then
-    FILES=`git ls-files .`
+    files=`git ls-files .`
   else
-    FILES=`git ls-files $1`
+    files=`git ls-files $1`
   fi
 
-  echo $FILES | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+  echo $files | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 }
 
 # Git: Clean current branch after it's been merged
 function gmerged() {
-  readonly BRANCH=$(git_branch_name)
+  branch=$(git_branch_name)
 
-  if [ $BRANCH == "master" ] ; then
+  if [ $branch == "master" ] ; then
     echo "Cannot prune master"
     return
   fi
 
-  readonly TRUNK="master"
-  FORCE=false
+  trunk="master"
+  force=false
 
   for i in "$@" ; do
     case "$i" in
-      ( -f | --force ) FORCE=true; shift;;
-      ( * ) TRUNK=$1; shift;;
+      ( -f | --force ) force=true; shift;;
+      ( * ) trunk=$1; shift;;
     esac
   done
 
-  if [ $FORCE == true ] ; then
-    DELETE_FLAG="D"
+  if [ $force == true ] ; then
+    delete_flag="D"
   else
-    DELETE_FLAG="d"
+    delete_flag="d"
   fi
 
-  if [ $BRANCH == $TRUNK ] ; then
+  if [ $branch == $trunk ] ; then
     echo "Cannot prune into self"
     return
   fi
 
-  git stash && git checkout $TRUNK && git pull origin $TRUNK && git branch -${DELETE_FLAG} $BRANCH && git branch -${DELETE_FLAG}r origin/$BRANCH
+  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $branch && git branch -${delete_flag}r origin/$branch
 }
 
 # Git: Enter interactive mode to squash the number of commits specified
@@ -98,17 +98,17 @@ function install-linux() {
   echo ""
   read -p "Which device would you like install to? " input
 
-  DEVICE=/dev/$input
+  device=/dev/$input
 
-  if [ ! -b $DEVICE ] ; then
+  if [ ! -b $device ] ; then
       echo "Invalid device"
       exit 1
   fi
 
-  SIZE=`stat --print="%s" $1`
+  size=`stat --print="%s" $1`
 
   date
-  sudo bash -c "dd if=$1 | pv -s $SIZE | dd of=$DEVICE bs=4M"
+  sudo bash -c "dd if=$1 | pv -s $size | dd of=$device bs=4M"
   date
 }
 
@@ -130,16 +130,16 @@ function wipe-device() {
   echo ""
   read -p "Which device would you like to wipe? " input
 
-  DEVICE=/dev/$input
+  device=/dev/$input
 
-  if [ ! -b $DEVICE ] ; then
+  if [ ! -b $device ] ; then
       echo "Invalid device"
       return
   fi
 
-  SIZE=`sudo blockdev --getsize64 $DEVICE`
+  size=`sudo blockdev --getsize64 $device`
 
   date
-  sudo bash -c "dd if=/dev/urandom | pv -s $SIZE | dd of=$DEVICE bs=4M"
+  sudo bash -c "dd if=/dev/urandom | pv -s $size | dd of=$device bs=4M"
   date
 }
