@@ -39,7 +39,7 @@ function git_line_count() {
 }
 
 # Git: Clean current branch after it's been merged
-function gmerged() {
+function gprune() {
   branch=$(git_branch_name)
 
   if [ $branch == "master" ] ; then
