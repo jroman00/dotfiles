@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Add RVM to `$PATH`
+export PATH="$PATH:$HOME/.rvm/bin";
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then
   source "${HOME}/google-cloud-sdk/path.bash.inc";
