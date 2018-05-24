@@ -68,7 +68,7 @@ function gprune() {
     return
   fi
 
-  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $branch && git branch -${delete_flag}r origin/$branch
+  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $branch && git fetch --prune
 }
 
 # Git: Enter interactive mode to squash the number of commits specified
