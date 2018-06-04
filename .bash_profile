@@ -24,3 +24,12 @@ if which brew &> /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_
 elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
+
+# SoulCycle Shell Helpers
+if [ -f ${HOME}/.soulcycle_shell_helpers/aliases ]; then
+  source ${HOME}/.soulcycle_shell_helpers/aliases
+fi
+
+if [ -f ${HOME}/.soulcycle_shell_helpers/functions ]; then
+  source ${HOME}/.soulcycle_shell_helpers/functions
+fi
