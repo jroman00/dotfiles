@@ -71,6 +71,31 @@ function gprune() {
   git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $branch && git fetch --prune
 }
 
+# Git: Rebase current branch
+function grebase() {
+  branch=$(git_branch_name)
+
+  if [ $branch == "master" ] ; then
+    echo "Cannot rebase master"
+    return
+  fi
+
+  trunk="master"
+
+  for i in "$@" ; do
+    case "$i" in
+      ( * ) trunk=$1; shift;;
+    esac
+  done
+
+  if [ $branch == $trunk ] ; then
+    echo "Cannot rebase into self"
+    return
+  fi
+
+  git stash && git checkout $trunk && git fetch --prune && git pull origin $trunk && git checkout - && git rebase $trunk
+}
+
 # Git: Enter interactive mode to squash the number of commits specified
 function gsquash() {
   if [ -z "$1" ] ; then
