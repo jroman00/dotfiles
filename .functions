@@ -8,6 +8,23 @@ if [ $? -eq 0 ]; then
   }
 fi;
 
+function download_composer() {
+  EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+  ACTUAL_SIGNATURE="$(php -r "echo hash_file('SHA384', 'composer-setup.php');")"
+
+  if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ] ; then
+      >&2 echo 'ERROR: Invalid installer signature'
+      rm composer-setup.php
+      return 1
+  fi
+
+  php composer-setup.php --quiet
+  RESULT=$?
+  rm composer-setup.php
+  return $RESULT
+}
+
 # Git: Prepend current branch name to commit message
 function gcb() {
   current_branch=$(git_branch_name)
@@ -110,12 +127,12 @@ function gsquash() {
 function install-linux() {
   if [[ $# -eq 0 ]] ; then
     echo 'Input file required'
-    exit 1
+    return 1
   fi
 
   if [ ! -f $1 ]; then
       echo "Input file not found."
-      exit 1
+      return 1
   fi
 
   lsblk -o NAME,LABEL
@@ -127,7 +144,7 @@ function install-linux() {
 
   if [ ! -b $device ] ; then
       echo "Invalid device"
-      exit 1
+      return 1
   fi
 
   size=`stat --print="%s" $1`
