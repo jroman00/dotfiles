@@ -124,15 +124,15 @@ function gsquash() {
 }
 
 # Install linux ISO to the selected device
-function install-linux() {
+function install_linux() {
   if [[ $# -eq 0 ]] ; then
     echo 'Input file required'
-    exit 1
+    return 1
   fi
 
-  if [ ! -f $1 ]; then
+  if [ ! -f $1 ] ; then
       echo "Input file not found."
-      exit 1
+      return 1
   fi
 
   lsblk -o NAME,LABEL
@@ -144,7 +144,7 @@ function install-linux() {
 
   if [ ! -b $device ] ; then
       echo "Invalid device"
-      exit 1
+      return 1
   fi
 
   size=`stat --print="%s" $1`
@@ -155,18 +155,18 @@ function install-linux() {
 }
 
 # Reset all directory and file permissions to 0775 and 0664, respectively, in the current directory
-function reset-chmod() {
+function reset_chmod() {
   find . -type d -print0 | xargs -0 chmod 0775
   find . -type f -print0 | xargs -0 chmod 0664
 }
 
 # Touch all files under the current directory
-function touch-files() {
+function touch_files() {
   find . -type f -print0 | xargs -0 touch
 }
 
 # Wipe selected device by overwriting with random data
-function wipe-device() {
+function wipe_device() {
   lsblk -o NAME,LABEL
 
   echo ""
