@@ -127,12 +127,12 @@ function gsquash() {
 function install-linux() {
   if [[ $# -eq 0 ]] ; then
     echo 'Input file required'
-    return 1
+    exit 1
   fi
 
   if [ ! -f $1 ]; then
       echo "Input file not found."
-      return 1
+      exit 1
   fi
 
   lsblk -o NAME,LABEL
@@ -144,7 +144,7 @@ function install-linux() {
 
   if [ ! -b $device ] ; then
       echo "Invalid device"
-      return 1
+      exit 1
   fi
 
   size=`stat --print="%s" $1`
