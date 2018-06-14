@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Application aliases
+alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # Bash aliases
 alias editbp='subl $HOME/.bash_profile'
 alias editbrc='subl $HOME/.bashrc'
