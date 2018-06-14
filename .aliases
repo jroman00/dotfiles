@@ -4,47 +4,46 @@
 alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # Bash aliases
-alias sourcebp='. $HOME/.bash_profile'
-alias sourcebrc='. $HOME/.bashrc'
 alias editbp='subl $HOME/.bash_profile'
 alias editbrc='subl $HOME/.bashrc'
+alias sourcebp='. $HOME/.bash_profile'
+alias sourcebrc='. $HOME/.bashrc'
 
 # Docker aliases
-alias dps='docker ps'
 alias dexec='docker exec -it'
+alias dps='docker ps'
 
 # Minikube aliases
 alias mk='minikube'
 alias mkde='eval $(minikube docker-env)'
 
 # Kubectl aliases
-alias kctl='kubectl'
-alias kexec='kubectl exec -it'
-alias kcr='kubectl create -f'
 alias kap='kubectl apply -f'
+alias kcr='kubectl create -f'
+alias kctl='kubectl'
 alias kdel='kubectl delete'
+alias kexec='kubectl exec -it'
 
 # Docker compose aliases
 alias dc='docker-compose'
-alias dcup='docker-compose up'
 alias dcdown='docker-compose down'
 alias dcstart='docker-compose start'
 alias dcstop='docker-compose stop'
+alias dcup='docker-compose up'
 
 # Git aliases
 alias g='git'
-alias gs='git status'
-alias gdiff='git diff --no-prefix --ignore-all-space'
 alias ga='git add'
+alias gc='git commit -m '
+alias gdiff='git diff --no-prefix --ignore-all-space'
+alias gs='git status'
 alias gx='git ls-files --others --exclude-standard | xargs rm'
 
-alias gpush='git push origin HEAD'
-alias gpull='git pull origin HEAD'
-alias gfp='git fetch --prune && git pull origin $(git_branch_name)'
-
-alias gc='git commit -m '
 alias gamend='git commit --amend'
 alias gblame='git blame -wM'
+alias gfp='git fetch --prune && git pull origin $(git_branch_name)'
+alias gpull='git pull origin HEAD'
+alias gpush='git push origin HEAD'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -69,9 +68,9 @@ alias ls="command ls ${colorflag}"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
