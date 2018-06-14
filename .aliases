@@ -36,6 +36,7 @@ alias g='git'
 alias gs='git status'
 alias gdiff='git diff --no-prefix --ignore-all-space'
 alias ga='git add'
+alias gx='git ls-files --others --exclude-standard | xargs rm'
 
 alias gpush='git push origin HEAD'
 alias gpull='git pull origin HEAD'
