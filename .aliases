@@ -38,7 +38,7 @@ alias ga='git add'
 alias gc='git commit -m '
 alias gdiff='git diff --no-prefix --ignore-all-space'
 alias gs='git status'
-alias gx='git ls-files --others --exclude-standard | xargs rm'
+alias gx='git ls-files --others --directory --exclude-standard | xargs rm'
 
 alias gamend='git commit --amend'
 alias gblame='git blame -wM'
