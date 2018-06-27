@@ -12,8 +12,11 @@ alias sourcebrc='. $HOME/.bashrc'
 
 # Docker aliases
 alias dexec='docker exec -it'
-alias dnuke='docker stop $(docker container ls -aq) && docker system prune -a -f --volumes'
 alias dps='docker ps'
+
+# Docker cleanup aliases
+alias dbomb='docker stop $(docker ps -aq) && docker rmi $(docker images -aq)'
+alias dnuke='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -aq)'
 
 # Minikube aliases
 alias mk='minikube'
