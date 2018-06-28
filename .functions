@@ -29,9 +29,9 @@ function download_composer() {
 function gcb() {
   current_branch=$(git_branch_name)
 
-  if [ $current_branch == "master" ] ; then
-    echo "Currently on master"
-    return
+  if [ $current_branch == "development" ] || [ $current_branch == "master" ] ; then
+    echo "Cannot commit message with branch name $current_branch"
+    return 1
   fi
 
   commit_branch=$(echo "$current_branch" | sed -E 's/^(feature|hotfix|release)\///')
@@ -57,15 +57,20 @@ function git_line_count() {
 
 # Git: Clean current branch after it's been merged
 function gprune() {
-  branch=$(git_branch_name)
+  active_branch=$(git_branch_name)
+  development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $branch == "master" ] ; then
-    echo "Cannot prune master"
-    return
+  if [ $active_branch == "development" ] || [ $active_branch == "master" ] ; then
+    echo "Cannot prune $active_branch"
+    return 1
   fi
 
-  trunk="master"
   force=false
+  trunk="master"
+
+  if [ $development_exists ] ; then
+    trunk="development"
+  fi
 
   for i in "$@" ; do
     case "$i" in
@@ -80,24 +85,29 @@ function gprune() {
     delete_flag="d"
   fi
 
-  if [ $branch == $trunk ] ; then
+  if [ $active_branch == $trunk ] ; then
     echo "Cannot prune into self"
-    return
+    return 1
   fi
 
-  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $branch && git fetch --prune
+  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $active_branch && git fetch --prune
 }
 
 # Git: Rebase current branch
 function grebase() {
-  branch=$(git_branch_name)
+  active_branch=$(git_branch_name)
+  development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $branch == "master" ] ; then
-    echo "Cannot rebase master"
-    return
+  if [ $active_branch == "development" ] || [ $active_branch == "master" ] ; then
+    echo "Cannot rebase $active_branch"
+    return 1
   fi
 
   trunk="master"
+
+  if [ $development_exists ] ; then
+    trunk="development"
+  fi
 
   for i in "$@" ; do
     case "$i" in
@@ -105,9 +115,9 @@ function grebase() {
     esac
   done
 
-  if [ $branch == $trunk ] ; then
+  if [ $active_branch == $trunk ] ; then
     echo "Cannot rebase into self"
-    return
+    return 1
   fi
 
   git stash && git checkout $trunk && git fetch --prune && git pull origin $trunk && git checkout - && git rebase $trunk
@@ -117,7 +127,7 @@ function grebase() {
 function gsquash() {
   if [ -z "$1" ] ; then
     echo "Usage: squash <num_commits>"
-    return
+    return 1
   fi
 
   git stash && git rebase -i HEAD~$1
@@ -131,8 +141,8 @@ function install_linux() {
   fi
 
   if [ ! -f $1 ] ; then
-      echo "Input file not found."
-      return 1
+    echo "Input file not found."
+    return 1
   fi
 
   lsblk -o NAME,LABEL
@@ -143,8 +153,8 @@ function install_linux() {
   device=/dev/$input
 
   if [ ! -b $device ] ; then
-      echo "Invalid device"
-      return 1
+    echo "Invalid device"
+    return 1
   fi
 
   size=`stat --print="%s" $1`
@@ -175,8 +185,8 @@ function wipe_device() {
   device=/dev/$input
 
   if [ ! -b $device ] ; then
-      echo "Invalid device"
-      return
+    echo "Invalid device"
+    return 1
   fi
 
   size=`sudo blockdev --getsize64 $device`
