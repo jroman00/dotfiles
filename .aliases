@@ -39,10 +39,10 @@ alias dcup='docker-compose up'
 # Git aliases
 alias g='git'
 alias ga='git add'
-alias gc='git commit -m '
-alias gdiff='git diff --no-prefix --ignore-all-space'
+alias gc='git commit -m'
+alias gdiff='git diff --ignore-all-space --no-prefix'
 alias gs='git status'
-alias gx='git ls-files --others --directory --exclude-standard | xargs rm'
+alias gx='git ls-files --directory --exclude-standard --others | xargs rm'
 
 alias gamend='git commit --amend'
 alias gblame='git blame -wM'
