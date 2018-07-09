@@ -39,7 +39,7 @@ function gcb() {
   git commit -m "$commit_branch: $1"
 }
 
-# Git: Determine current git branch
+# Git: Determine current branch
 function git_branch_name() {
   git rev-parse --abbrev-ref HEAD
 }
