@@ -55,6 +55,26 @@ function git_line_count() {
   echo $files | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 }
 
+# Git: Update all immediate subdirectories
+function git_update_all() {
+  echo "Pulling in latest changes for all repositories..."
+
+  # Find all git repositories and update it to the master latest revision
+  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3-); do
+    echo ""
+    echo "Updating $i..."
+
+    (
+      cd $(dirname $i)
+
+      gfp
+    )
+  done
+
+  echo ""
+  echo "Complete!"
+}
+
 # Git: Clean current branch after it's been merged
 function gprune() {
   active_branch=$(git_branch_name)
