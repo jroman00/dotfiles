@@ -50,6 +50,9 @@ alias gfp='git fetch --prune && git pull origin $(git_branch_name)'
 alias gpull='git pull origin HEAD'
 alias gpush='git push origin HEAD'
 
+# Misc aliases
+alias av='ansible-vault'
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
   colorflag="--color"
