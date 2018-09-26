@@ -184,6 +184,11 @@ function install_linux() {
   date
 }
 
+# Execute whatever command + arguments are passed in every 5 seconds
+function loop5() {
+  while true; do $@ && echo ""; sleep 5; done;
+}
+
 # Reset all directory and file permissions to 0775 and 0664, respectively, in the current directory
 function reset_chmod() {
   find . -type d -print0 | xargs -0 chmod 0775
