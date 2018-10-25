@@ -10,6 +10,17 @@ alias editbrc='subl $HOME/.bashrc'
 alias sourcebp='. $HOME/.bash_profile'
 alias sourcebrc='. $HOME/.bashrc'
 
+# Change directory
+alias cdbackrow='cd $PODIUMPATH/applications/backrow'
+alias cdbouncer='cd $PODIUMPATH/applications/bouncer'
+alias cddashboardbackend='cd $PODIUMPATH/applications/dashboard-backend'
+alias cddashboardfrontend='cd $PODIUMPATH/applications/dashboard-frontend'
+alias cdgomigrate='cd $PODIUMPATH/applications/gomigrate'
+alias cdgomigratenotifs='cd $PODIUMPATH/applications/gomigrate-notifications'
+alias cdhourglass='cd $PODIUMPATH/applications/hourglass'
+alias cdmailcarrier='cd $PODIUMPATH/applications/mail-carrier'
+alias cdw77='cd $PODIUMPATH/applications/w77'
+
 # Docker aliases
 alias dexec='docker exec -it'
 alias dps='docker ps'
