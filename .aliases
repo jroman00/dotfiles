@@ -15,10 +15,13 @@ alias cdbackrow='cd $PODIUMPATH/applications/backrow'
 alias cdbouncer='cd $PODIUMPATH/applications/bouncer'
 alias cddashboardbackend='cd $PODIUMPATH/applications/dashboard-backend'
 alias cddashboardfrontend='cd $PODIUMPATH/applications/dashboard-frontend'
+alias cdgbpbackend='cd $PODIUMPATH/applications/gbp-backend'
+alias cdgbpfrontend='cd $PODIUMPATH/applications/gbp-frontend'
 alias cdgomigrate='cd $PODIUMPATH/applications/gomigrate'
 alias cdgomigratenotifs='cd $PODIUMPATH/applications/gomigrate-notifications'
 alias cdhourglass='cd $PODIUMPATH/applications/hourglass'
 alias cdmailcarrier='cd $PODIUMPATH/applications/mail-carrier'
+alias cdscs='cd $PODIUMPATH/applications/soul-cycle-site'
 alias cdw77='cd $PODIUMPATH/applications/w77'
 
 # Docker aliases
