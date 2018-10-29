@@ -22,6 +22,7 @@ alias cdgomigratenotifs='cd $PODIUMPATH/applications/gomigrate-notifications'
 alias cdhourglass='cd $PODIUMPATH/applications/hourglass'
 alias cdmailcarrier='cd $PODIUMPATH/applications/mail-carrier'
 alias cdscs='cd $PODIUMPATH/applications/soul-cycle-site'
+alias cdsoulcyclesite='cd $PODIUMPATH/applications/soul-cycle-site'
 alias cdw77='cd $PODIUMPATH/applications/w77'
 
 # Docker aliases
