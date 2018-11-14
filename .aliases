@@ -31,7 +31,7 @@ alias dps='docker ps'
 
 # Docker cleanup aliases
 alias dbomb='docker stop $(docker ps -aq); docker rmi $(docker images -aq)'
-alias dnuke='docker stop $(docker ps -aq); docker rm $(docker ps -aq); docker rmi -f $(docker images -aq)'
+alias dnuke='docker stop $(docker ps -aq); docker rm $(docker ps -aq); docker rmi -f $(docker images -aq); docker network prune -f'
 
 # Minikube aliases
 alias mk='minikube'
