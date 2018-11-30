@@ -13,6 +13,7 @@ alias sourcebrc='. $HOME/.bashrc'
 # Change directory
 alias cdapi-tests='cd $PODIUMPATH/applications/api-tests'
 alias cdbackrow='cd $PODIUMPATH/applications/backrow'
+alias cdbayside='cd $PODIUMPATH/applications/bayside'
 alias cdbouncer='cd $PODIUMPATH/applications/bouncer'
 alias cddashboard-backend='cd $PODIUMPATH/applications/dashboard-backend'
 alias cddashboard-frontend='cd $PODIUMPATH/applications/dashboard-frontend'
