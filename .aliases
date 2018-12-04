@@ -20,16 +20,20 @@ alias cddashboard-frontend='cd $PODIUMPATH/applications/dashboard-frontend'
 alias cdgbp-backend='cd $PODIUMPATH/applications/gbp-backend'
 alias cdgbp-frontend='cd $PODIUMPATH/applications/gbp-frontend'
 alias cdgomigrate-notifs='cd $PODIUMPATH/applications/gomigrate-notifications'
-alias cdgomigrate='cd $PODIUMPATH/applications/gomigrate'
 alias cdhourglass='cd $PODIUMPATH/applications/hourglass'
 alias cdloadtests='cd $PODIUMPATH/applications/podium-loadtests'
 alias cdmail-carrier='cd $PODIUMPATH/applications/mail-carrier'
-alias cdmilestones='cd $PODIUMPATH/applications/milestones'
 alias cdpost-office='cd $PODIUMPATH/applications/post-office'
 alias cdscs='cd $PODIUMPATH/applications/soul-cycle-site'
 alias cdsilk-road='cd $PODIUMPATH/applications/silk-road'
 alias cdsoulcyclesite='cd $PODIUMPATH/applications/soul-cycle-site'
 alias cdw77='cd $PODIUMPATH/applications/w77'
+
+# Change directory Go apps
+alias cdfed='cd $GOPATH/src/github.com/soulcycle/fed'
+alias cdgomigrate='cd $GOPATH/src/github.com/soulcycle/gomigrate'
+alias cdmilestones='cd $GOPATH/src/github.com/soulcycle/milestones'
+alias cdpops='cd $GOPATH/src/github.com/soulcycle/pops'
 
 # Docker aliases
 alias dexec='docker exec -it'
