@@ -220,3 +220,207 @@ function wipe_device() {
   sudo bash -c "dd if=/dev/urandom | pv -s $size | dd of=$device bs=4M"
   date
 }
+
+####################
+# GCloud functions #
+####################
+export GCLOUD_ACCOUNT=justin.roman@soul-cycle.com
+export GCLOUD_ACCOUNT_EMAIL=justin.roman@soul-cycle.com
+function setPodiumDevStageGCPCreds() {
+  gcloud config configurations activate default
+  unset GCP_PROJECT
+  unset GCP_CONFIG_NAME
+  unset creds_file
+  unset GOOGLE_CREDENTIALS
+  unset GCP_STATE_BUCKET
+  unset GKE_CLUSTER
+  GCP_PROJECT="podium-devstage"
+  creds_file="$PODIUMPATH/applications/go/src/github.com/soulcycle/pops/provisioning/terraform/podium/envs/podium-devstage/sa-keys/terraform-owner-${GCP_PROJECT}-credentials.json"
+  echo "-----------------------------------------------------"
+  echo "Setting up Google Credentials for ${GCP_PROJECT}"
+  echo "-----------------------------------------------------"
+  printf "Using creds file: \n\t${creds_file}\n"
+  echo "Setting gcloud config... project: $GCP_PROJECT"
+  # Activate GCP config
+  GCP_CONFIG_NAME=$GCP_PROJECT
+  gcloud config configurations activate $GCP_CONFIG_NAME
+  gcloud config set project $GCP_PROJECT
+  export GOOGLE_CREDENTIALS=$creds_file
+
+  gcloud config set compute/zone us-east1
+  gcloud config set container/cluster east1-cluster
+
+  export GCP_PROJECT=$(gcloud config get-value core/project)
+  export GCP_STATE_BUCKET=${GCP_PROJECT}-terraform-state
+  export GKE_CLUSTER=$(gcloud config get-value container/cluster)
+  alias tfint="terraform init -backend-config='bucket=${GCP_STATE_BUCKET}'"
+  kctlauth $GKE_CLUSTER
+}
+
+function setPlaygroundGCPCreds() {
+  gcloud config configurations activate default
+  unset GCP_PROJECT
+  unset GCP_CONFIG_NAME
+  unset creds_file
+  unset GOOGLE_CREDENTIALS
+  unset GCP_STATE_BUCKET
+  unset GKE_CLUSTER
+  GCP_PROJECT="justins-playground"
+  creds_file="$PODIUMPATH/applications/go/src/github.com/soulcycle/pops/provisioning/terraform/podium/envs/playgrounds/mbastian/sa-keys/terraform-owner-${GCP_PROJECT}-credentials.json"
+  echo "-----------------------------------------------------"
+  echo "Setting up Google Credentials for ${GCP_PROJECT}"
+  echo "-----------------------------------------------------"
+  printf "Using creds file: \n\t${creds_file}\n"
+  echo "Setting gcloud config... project: $GCP_PROJECT"
+  # Activate GCP config
+  GCP_CONFIG_NAME=$GCP_PROJECT
+  gcloud config configurations activate $GCP_CONFIG_NAME
+  gcloud config set project $GCP_PROJECT
+  export GOOGLE_CREDENTIALS=$creds_file
+
+  gcloud config set compute/zone us-east1
+  gcloud config set container/cluster east1-cluster
+
+  export GCP_PROJECT=$(gcloud config get-value core/project)
+  export GCP_STATE_BUCKET=${GCP_PROJECT}-terraform-state
+  export GKE_CLUSTER=$(gcloud config get-value container/cluster)
+  alias tfint="terraform init -backend-config='bucket=${GCP_STATE_BUCKET}'"
+  kctlauth $GKE_CLUSTER
+}
+
+function setPodiumLoadTestGCPCreds() {
+  gcloud config configurations activate default
+  unset GCP_PROJECT
+  unset GCP_CONFIG_NAME
+  unset creds_file
+  unset GOOGLE_CREDENTIALS
+  unset GCP_STATE_BUCKET
+  unset GKE_CLUSTER
+  GCP_PROJECT="podium-loadtest"
+  creds_file="$PODIUMPATH/applications/go/src/github.com/soulcycle/pops/provisioning/terraform/podium/envs/podium-loadtest/sa-keys/terraform-owner-${GCP_PROJECT}-credentials.json"
+  echo "-----------------------------------------------------"
+  echo "Setting up Google Credentials for ${GCP_PROJECT}"
+  echo "-----------------------------------------------------"
+  printf "Using creds file: \n\t${creds_file}\n"
+  echo "Setting gcloud config... project: $GCP_PROJECT"
+  # Activate GCP config
+  GCP_CONFIG_NAME=$GCP_PROJECT
+  gcloud config configurations activate $GCP_CONFIG_NAME
+
+  gcloud config set account $GCLOUD_ACCOUNT_EMAIL
+  gcloud config set project $GCP_PROJECT
+  export GOOGLE_CREDENTIALS=$creds_file
+
+
+  # Create and activate if it doesn't exist
+  [ $? != 0 ] && gcloud config configurations create $GCP_CONFIG_NAME
+  gcloud config set compute/zone us-east1
+  gcloud config set container/cluster east1-cluster
+
+  export GCP_PROJECT=$(gcloud config get-value core/project)
+  export GCP_STATE_BUCKET=${GCP_PROJECT}-terraform-state
+  export GKE_CLUSTER=$(gcloud config get-value container/cluster)
+  alias tfint="terraform init -backend-config='bucket=${GCP_STATE_BUCKET}'"
+  kctlauth $GKE_CLUSTER
+}
+
+
+function setPodiumProdGCPCreds() {
+  gcloud config configurations activate default
+  unset GCP_PROJECT
+  unset GCP_CONFIG_NAME
+  unset creds_file
+  unset GOOGLE_CREDENTIALS
+  unset GCP_STATE_BUCKET
+  unset GKE_CLUSTER
+  GCP_PROJECT="podium-production"
+  creds_file="$PODIUMPATH/applications/go/src/github.com/soulcycle/pops/provisioning/terraform/podium/envs/podium-production/sa-keys/terraform-owner-${GCP_PROJECT}-credentials.json"
+  echo "-----------------------------------------------------"
+  echo "Setting up Google Credentials for ${GCP_PROJECT}"
+  echo "-----------------------------------------------------"
+  printf "Using creds file: \n\t${creds_file}\n"
+  echo "Setting gcloud config... project: $GCP_PROJECT"
+
+  # Activate GCP config
+  GCP_CONFIG_NAME=$GCP_PROJECT
+  gcloud config configurations activate $GCP_CONFIG_NAME
+
+  gcloud config set account $GCLOUD_ACCOUNT_EMAIL
+  gcloud config set project $GCP_PROJECT
+  export GOOGLE_CREDENTIALS=$creds_file
+
+  # Create and activate if it doesn't exist
+  [ $? != 0 ] && gcloud config configurations create $GCP_CONFIG_NAME
+  gcloud config set compute/zone us-east1
+  gcloud config set container/cluster east1-cluster
+
+  export GCP_PROJECT=$(gcloud config get-value core/project)
+  export GCP_STATE_BUCKET=${GCP_PROJECT}-terraform-state
+  export GKE_CLUSTER=$(gcloud config get-value container/cluster)
+  alias tfint="terraform init -backend-config='bucket=${GCP_STATE_BUCKET}'"
+  kctlauth $GKE_CLUSTER
+}
+
+function setPodiumSweatworksGCPCreds() {
+  gcloud config configurations activate default
+  unset GCP_PROJECT
+  unset GCP_CONFIG_NAME
+  unset creds_file
+  unset GOOGLE_CREDENTIALS
+  unset GCP_STATE_BUCKET
+  unset GKE_CLUSTER
+  GCP_PROJECT="sweatworks-playground"
+  creds_file="$PODIUMPATH/applications/go/src/github.com/soulcycle/pops/provisioning/terraform/podium/envs/playgrounds/sweatworks/sa-keys/terraform-owner-${GCP_PROJECT}-credentials.json"
+  echo "-----------------------------------------------------"
+  echo "Setting up Google Credentials for ${GCP_PROJECT}"
+  echo "-----------------------------------------------------"
+  printf "Using creds file: \n\t${creds_file}\n"
+  echo "Setting gcloud config... project: $GCP_PROJECT"
+
+  # Activate GCP config
+  GCP_CONFIG_NAME=$GCP_PROJECT
+  gcloud config configurations activate $GCP_CONFIG_NAME
+
+  gcloud config set account $GCLOUD_ACCOUNT_EMAIL
+  gcloud config set project $GCP_PROJECT
+  export GOOGLE_CREDENTIALS=$creds_file
+
+  # Create and activate if it doesn't exist
+  [ $? != 0 ] && gcloud config configurations create $GCP_CONFIG_NAME
+  gcloud config set compute/zone us-east1-b
+  gcloud config set container/cluster east1-cluster
+
+  export GCP_PROJECT=$(gcloud config get-value core/project)
+  export GCP_STATE_BUCKET=${GCP_PROJECT}-terraform-state
+  export GKE_CLUSTER=$(gcloud config get-value container/cluster)
+  alias tfint="terraform init -backend-config='bucket=${GCP_STATE_BUCKET}'"
+  kctlauth $GKE_CLUSTER
+}
+
+createNewGCPConfig() {
+  # The name of the GCP config
+  name=$1
+  [[ "$1" == "" ]] && echo "[ERROR] Please provide the name of the config to be created." && return
+  [[ "$GCLOUD_ACCOUNT" == "" ]] && echo "[ERROR] Please set the GCLOUD_ACCOUNT env var with your email address." && return
+
+  echo "-----------------------------------------------------"
+  echo "Creating gcloud project configuration: ${name}"
+  echo "-----------------------------------------------------"
+  gcloud config configurations create $name
+  [[ $? -ne 0 ]] && echo "[ERROR] Failed to create config." && return
+
+  echo "Activating config: ${name}"
+  gcloud config configurations activate $name
+  [[ $? -ne 0 ]] && echo "[ERROR] Failed to activate config." && return
+
+  echo "Setting project of config to: ${name}"
+  gcloud config set project $name
+  [[ $? -ne 0 ]] && echo "[ERROR] Failed to set project in config." && return
+
+  echo "Setting account of config to: ${GCLOUD_ACCOUNT}"
+  gcloud config set account $GCLOUD_ACCOUNT
+  [[ $? -ne 0 ]] && echo "[ERROR] Failed to set project in config." && return
+
+  echo "Finished setting up new GCP config."
+  echo "-----------------------------------------------------"
+}

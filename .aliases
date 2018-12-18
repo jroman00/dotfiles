@@ -51,6 +51,7 @@ alias mkde='eval $(minikube docker-env)'
 alias kap='kubectl apply -f'
 alias kcr='kubectl create -f'
 alias kctl='kubectl'
+alias kctlauth='gcloud container clusters get-credentials'
 alias kdel='kubectl delete'
 alias kexec='kubectl exec -it'
 
