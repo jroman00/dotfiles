@@ -1,24 +1,16 @@
 #!/usr/bin/env bash
 
-# Use Git’s colored diff when available
-hash git &>/dev/null;
-if [ $? -eq 0 ]; then
-  function diff() {
-    git diff --no-index --color-words "$@";
-  }
-fi;
-
 # Connect to a Docker Compose service
 function dcconnect() {
   IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services)
 
   numServices=${#services[@]}
 
-  if [ ${#services[@]} -eq 0 ]; then
-    echo 'Error: No services found'
+  if [[ ${#services[@]} -eq 0 ]]; then
+    echo 'ERROR: No services found'
 
     return 1
-  elif [ ${#services[@]} -eq 1 ]; then
+  elif [[ ${#services[@]} -eq 1 ]]; then
     echo "Connecting to ${services[0]}..."
     docker-compose exec "${services[0]}" sh
 
@@ -34,10 +26,9 @@ function dcconnect() {
           ((num++))
       done
 
-      echo 'Please select the number of the service you wish to connect to ("q" to quit): '
-      read -r selectedNum
+      read -rp 'Please select the number of the service you wish to connect to ("q" to quit): ' selectedNum
 
-      if [[ "$selectedNum" == 'q' ]]; then
+      if [[ $selectedNum == 'q' ]]; then
         return 0
       fi
     done
@@ -47,12 +38,13 @@ function dcconnect() {
   fi
 }
 
+# Download composer
 function download_composer() {
   EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
   ACTUAL_SIGNATURE="$(php -r "echo hash_file('SHA384', 'composer-setup.php');")"
 
-  if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]; then
+  if [[ $EXPECTED_SIGNATURE != "$ACTUAL_SIGNATURE" ]]; then
       >&2 echo 'ERROR: Invalid installer signature'
       rm composer-setup.php
       return 1
@@ -68,7 +60,7 @@ function download_composer() {
 function gcb() {
   current_branch=$(git_branch_name)
 
-  if [ $current_branch == "development" ] || [ $current_branch == "master" ]; then
+  if [[ $current_branch == "development" ]] || [[ $current_branch == "master" ]]; then
     echo "Cannot commit message with branch name $current_branch"
     return 1
   fi
@@ -85,13 +77,13 @@ function git_branch_name() {
 
 # Git: Count committed lines per author
 function git_line_count() {
-  if [ -z "$1" ]; then
-    files=`git ls-files .`
+  if [[ -z "$1" ]]; then
+    files=$(git ls-files .)
   else
-    files=`git ls-files $1`
+    files=$(git ls-files "$1")
   fi
 
-  echo $files | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
+  echo "$files" | xargs -n1 git blame -wM --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 }
 
 # Git: Update all immediate subdirectories
@@ -104,7 +96,7 @@ function git_update_all() {
     echo "Updating $i..."
 
     (
-      cd $(dirname $i)
+      cd $(dirname "$i") || exit
 
       gfp
     )
@@ -119,7 +111,7 @@ function gprune() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $active_branch == "development" ] || [ $active_branch == "master" ]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]]; then
     echo "Cannot prune $active_branch"
     return 1
   fi
@@ -127,7 +119,7 @@ function gprune() {
   force=false
   trunk="master"
 
-  if [ $development_exists ]; then
+  if [[ $development_exists ]]; then
     trunk="development"
   fi
 
@@ -138,18 +130,18 @@ function gprune() {
     esac
   done
 
-  if [ $force == true ]; then
+  if [[ $force == true ]]; then
     delete_flag="D"
   else
     delete_flag="d"
   fi
 
-  if [ $active_branch == $trunk ]; then
+  if [[ $active_branch == "$trunk" ]]; then
     echo "Cannot prune into self"
     return 1
   fi
 
-  git stash && git checkout $trunk && git pull origin $trunk && git branch -${delete_flag} $active_branch && git fetch --prune
+  git stash && git checkout "$trunk" && git pull origin "$trunk" && git branch -${delete_flag} "$active_branch" && git fetch --prune
 }
 
 # Git: Rebase current branch
@@ -157,14 +149,14 @@ function grebase() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $active_branch == "development" ] || [ $active_branch == "master" ]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]]; then
     echo "Cannot rebase $active_branch"
     return 1
   fi
 
   trunk="master"
 
-  if [ $development_exists ]; then
+  if [[ $development_exists ]]; then
     trunk="development"
   fi
 
@@ -174,22 +166,22 @@ function grebase() {
     esac
   done
 
-  if [ $active_branch == $trunk ]; then
+  if [[ $active_branch == "$trunk" ]]; then
     echo "Cannot rebase into self"
     return 1
   fi
 
-  git stash && git checkout $trunk && git fetch --prune && git pull origin $trunk && git checkout - && git rebase $trunk
+  git stash && git checkout "$trunk" && git fetch --prune && git pull origin "$trunk" && git checkout - && git rebase "$trunk"
 }
 
 # Git: Enter interactive mode to squash the number of commits specified
 function gsquash() {
-  if [ -z "$1" ]; then
+  if [[ -z "$1" ]]; then
     echo "Usage: squash <num_commits>"
     return 1
   fi
 
-  git stash && git rebase -i HEAD~$1
+  git stash && git rebase -i "HEAD~$1"
 }
 
 # Install linux ISO to the selected device
@@ -199,24 +191,24 @@ function install_linux() {
     return 1
   fi
 
-  if [ ! -f $1 ]; then
-    echo "Input file not found."
+  if [[ ! -f $1 ]]; then
+    echo "Input file not found"
     return 1
   fi
 
   lsblk -o NAME,LABEL
 
   echo ""
-  read -p "Which device would you like install to? " input
+  read -rp "Which device would you like install to? " input
 
-  device=/dev/$input
+  device="/dev/$input"
 
-  if [ ! -b $device ]; then
+  if [[ ! -b $device ]]; then
     echo "Invalid device"
     return 1
   fi
 
-  size=`stat --print="%s" $1`
+  size=$(stat --print="%s" "$1")
 
   date
   sudo bash -c "dd if=$1 | pv -s $size | dd of=$device bs=4M"
@@ -225,7 +217,7 @@ function install_linux() {
 
 # Execute whatever command + arguments are passed in every 5 seconds
 function loop5() {
-  while true; do $@ && echo ""; sleep 5; done;
+  while true; do "$@" && echo ""; sleep 5; done;
 }
 
 # Reset all directory and file permissions to 0775 and 0664, respectively, in the current directory
@@ -244,16 +236,16 @@ function wipe_device() {
   lsblk -o NAME,LABEL
 
   echo ""
-  read -p "Which device would you like to wipe? " input
+  read -rp "Which device would you like to wipe? " input
 
-  device=/dev/$input
+  device="/dev/$input"
 
-  if [ ! -b $device ]; then
+  if [[ ! -b $device ]]; then
     echo "Invalid device"
     return 1
   fi
 
-  size=`sudo blockdev --getsize64 $device`
+  size=$(sudo blockdev --getsize64 "$device")
 
   date
   sudo bash -c "dd if=/dev/urandom | pv -s $size | dd of=$device bs=4M"
