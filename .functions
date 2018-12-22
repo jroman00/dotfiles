@@ -8,6 +8,45 @@ if [ $? -eq 0 ]; then
   }
 fi;
 
+# Connect to a Docker Compose service
+function dcconnect() {
+  IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services)
+
+  numServices=${#services[@]}
+
+  if [ ${#services[@]} -eq 0 ]; then
+    echo 'Error: No services found'
+
+    return 1
+  elif [ ${#services[@]} -eq 1 ]; then
+    echo "Connecting to ${services[0]}..."
+    docker-compose exec "${services[0]}" sh
+
+    return 0
+  else
+    echo "Multiple services found (num: $numServices)"
+
+    selectedNum=0
+    while [[ $selectedNum -le 0 ]] || [[ $selectedNum -gt $numServices ]]; do
+      num=1
+      for i in "${services[@]}"; do
+          echo "$num: $i"
+          ((num++))
+      done
+
+      echo 'Please select the number of the service you wish to connect to ("q" to quit): '
+      read -r selectedNum
+
+      if [[ "$selectedNum" == 'q' ]] ; then
+        return 0
+      fi
+    done
+
+    echo "Connecting to ${services[$selectedNum - 1]]}..."
+    docker-compose exec "${services[$selectedNum - 1]}" sh
+  fi
+}
+
 function download_composer() {
   EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
