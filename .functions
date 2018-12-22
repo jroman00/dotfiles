@@ -37,7 +37,7 @@ function dcconnect() {
       echo 'Please select the number of the service you wish to connect to ("q" to quit): '
       read -r selectedNum
 
-      if [[ "$selectedNum" == 'q' ]] ; then
+      if [[ "$selectedNum" == 'q' ]]; then
         return 0
       fi
     done
@@ -52,7 +52,7 @@ function download_composer() {
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
   ACTUAL_SIGNATURE="$(php -r "echo hash_file('SHA384', 'composer-setup.php');")"
 
-  if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ] ; then
+  if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]; then
       >&2 echo 'ERROR: Invalid installer signature'
       rm composer-setup.php
       return 1
@@ -68,7 +68,7 @@ function download_composer() {
 function gcb() {
   current_branch=$(git_branch_name)
 
-  if [ $current_branch == "development" ] || [ $current_branch == "master" ] ; then
+  if [ $current_branch == "development" ] || [ $current_branch == "master" ]; then
     echo "Cannot commit message with branch name $current_branch"
     return 1
   fi
@@ -85,7 +85,7 @@ function git_branch_name() {
 
 # Git: Count committed lines per author
 function git_line_count() {
-  if [ -z "$1" ] ; then
+  if [ -z "$1" ]; then
     files=`git ls-files .`
   else
     files=`git ls-files $1`
@@ -119,7 +119,7 @@ function gprune() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $active_branch == "development" ] || [ $active_branch == "master" ] ; then
+  if [ $active_branch == "development" ] || [ $active_branch == "master" ]; then
     echo "Cannot prune $active_branch"
     return 1
   fi
@@ -127,7 +127,7 @@ function gprune() {
   force=false
   trunk="master"
 
-  if [ $development_exists ] ; then
+  if [ $development_exists ]; then
     trunk="development"
   fi
 
@@ -138,13 +138,13 @@ function gprune() {
     esac
   done
 
-  if [ $force == true ] ; then
+  if [ $force == true ]; then
     delete_flag="D"
   else
     delete_flag="d"
   fi
 
-  if [ $active_branch == $trunk ] ; then
+  if [ $active_branch == $trunk ]; then
     echo "Cannot prune into self"
     return 1
   fi
@@ -157,14 +157,14 @@ function grebase() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
 
-  if [ $active_branch == "development" ] || [ $active_branch == "master" ] ; then
+  if [ $active_branch == "development" ] || [ $active_branch == "master" ]; then
     echo "Cannot rebase $active_branch"
     return 1
   fi
 
   trunk="master"
 
-  if [ $development_exists ] ; then
+  if [ $development_exists ]; then
     trunk="development"
   fi
 
@@ -174,7 +174,7 @@ function grebase() {
     esac
   done
 
-  if [ $active_branch == $trunk ] ; then
+  if [ $active_branch == $trunk ]; then
     echo "Cannot rebase into self"
     return 1
   fi
@@ -184,7 +184,7 @@ function grebase() {
 
 # Git: Enter interactive mode to squash the number of commits specified
 function gsquash() {
-  if [ -z "$1" ] ; then
+  if [ -z "$1" ]; then
     echo "Usage: squash <num_commits>"
     return 1
   fi
@@ -194,12 +194,12 @@ function gsquash() {
 
 # Install linux ISO to the selected device
 function install_linux() {
-  if [[ $# -eq 0 ]] ; then
+  if [[ $# -eq 0 ]]; then
     echo 'Input file required'
     return 1
   fi
 
-  if [ ! -f $1 ] ; then
+  if [ ! -f $1 ]; then
     echo "Input file not found."
     return 1
   fi
@@ -211,7 +211,7 @@ function install_linux() {
 
   device=/dev/$input
 
-  if [ ! -b $device ] ; then
+  if [ ! -b $device ]; then
     echo "Invalid device"
     return 1
   fi
@@ -248,7 +248,7 @@ function wipe_device() {
 
   device=/dev/$input
 
-  if [ ! -b $device ] ; then
+  if [ ! -b $device ]; then
     echo "Invalid device"
     return 1
   fi
