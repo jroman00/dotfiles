@@ -98,7 +98,7 @@ function git_update_all() {
     echo "Updating $i..."
 
     (
-      cd $(dirname "$i") || exit
+      cd "$(dirname "$i")" || exit
 
       gfp
     )
