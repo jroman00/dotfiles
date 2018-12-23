@@ -10,32 +10,34 @@ function dcconnect() {
     echo 'ERROR: No services found'
 
     return 1
-  elif [[ ${#services[@]} -eq 1 ]]; then
+  fi
+
+  if [[ ${#services[@]} -eq 1 ]]; then
     echo "Connecting to ${services[0]}..."
     docker-compose exec "${services[0]}" sh
 
     return 0
-  else
-    echo "Multiple services found (num: $numServices)"
+  fi
 
-    selectedNum=0
-    while [[ $selectedNum -le 0 ]] || [[ $selectedNum -gt $numServices ]]; do
-      num=1
-      for i in "${services[@]}"; do
-          echo "$num: $i"
-          ((num++))
-      done
+  echo "Multiple services found (num: $numServices)"
 
-      read -rp 'Please select the number of the service you wish to connect to ("q" to quit): ' selectedNum
-
-      if [[ $selectedNum == 'q' ]]; then
-        return 0
-      fi
+  selectedNum=0
+  while [[ $selectedNum -le 0 ]] || [[ $selectedNum -gt $numServices ]]; do
+    num=1
+    for i in "${services[@]}"; do
+        echo "$num: $i"
+        ((num++))
     done
 
-    echo "Connecting to ${services[$selectedNum - 1]]}..."
-    docker-compose exec "${services[$selectedNum - 1]}" sh
-  fi
+    read -rp 'Please select the number of the service you wish to connect to ("q" to quit): ' selectedNum
+
+    if [[ $selectedNum == 'q' ]]; then
+      return 0
+    fi
+  done
+
+  echo "Connecting to ${services[$selectedNum - 1]]}..."
+  docker-compose exec "${services[$selectedNum - 1]}" sh
 }
 
 # Download composer
