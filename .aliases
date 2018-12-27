@@ -66,7 +66,7 @@ alias dcup='docker-compose up'
 alias g='git'
 alias ga='git add'
 alias gc='git commit -m'
-alias gdiff='git diff --color-words --ignore-all-space --no-prefix'
+alias gdiff='git diff --ignore-all-space --no-prefix'
 alias gs='git status'
 alias gx='git ls-files --directory --exclude-standard --others | xargs rm -rf'
 
