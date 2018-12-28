@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Application aliases
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias google-chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
