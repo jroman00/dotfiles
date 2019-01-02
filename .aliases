@@ -36,6 +36,9 @@ alias cdgomigrate='cd $GOPATH/src/github.com/soulcycle/gomigrate'
 alias cdmilestones='cd $GOPATH/src/github.com/soulcycle/milestones'
 alias cdpops='cd $GOPATH/src/github.com/soulcycle/pops'
 
+# Podium
+alias podium_start='(cd $PODIUMPATH && bin/setup-docker-network && bin/setup-global-db && bin/setup-global-cache && bin/setup-global-pubsub-emulator)'
+
 # Docker aliases
 alias dexec='docker exec -it'
 alias dps='docker ps'
