@@ -3,6 +3,7 @@
 
 # IDE configuration files
 .idea
+.vscode
 
 # Folder view configuration files
 .DS_Store
