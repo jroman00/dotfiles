@@ -39,6 +39,7 @@ alias cdusers-service='cd $GOPATH/src/github.com/soulcycle/users-service'
 
 # Podium
 alias podium_start='(cd $PODIUMPATH && bin/setup-docker-network && bin/setup-global-db && bin/setup-global-cache && bin/setup-global-pubsub-emulator)'
+alias podium_stop='(cd $PODIUMPATH && docker-compose -f configs/global-db-compose.yml stop && docker-compose -f configs/global-cache-compose.yml stop && docker-compose -f configs/global-pubsub-emulator-compose.yml stop)'
 
 # Docker aliases
 alias dexec='docker exec -it'
