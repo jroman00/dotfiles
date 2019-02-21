@@ -11,7 +11,11 @@ alias editbrc='subl $HOME/.bashrc'
 alias sourcebp='. $HOME/.bash_profile'
 alias sourcebrc='. $HOME/.bashrc'
 
-# Change directory
+# Change directory (personal)
+alias cdokrs-backend='cd $OKRS_PATH/applications/dashboard-backend'
+alias cdokrs-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
+
+# Change directory (SoulCycle)
 alias cdapi-tests='cd $PODIUMPATH/applications/api-tests'
 alias cdbackrow='cd $PODIUMPATH/applications/backrow'
 alias cdbayside='cd $PODIUMPATH/applications/bayside'
@@ -32,7 +36,7 @@ alias cdsilk-road='cd $PODIUMPATH/applications/silk-road'
 alias cdsoulcyclesite='cd $PODIUMPATH/applications/soul-cycle-site'
 alias cdw77='cd $PODIUMPATH/applications/w77'
 
-# Change directory Go apps
+# Change directory (SoulCycle Go apps)
 alias cdfed='cd $GOPATH/src/github.com/soulcycle/fed'
 alias cdgomigrate='cd $GOPATH/src/github.com/soulcycle/gomigrate'
 alias cdmilestones='cd $GOPATH/src/github.com/soulcycle/milestones'
