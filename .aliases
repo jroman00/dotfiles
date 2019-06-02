@@ -12,8 +12,10 @@ alias sourcebp='. $HOME/.bash_profile'
 alias sourcebrc='. $HOME/.bashrc'
 
 # Change directory (personal)
-alias cdokrs-backend='cd $OKRS_PATH/applications/dashboard-backend'
-alias cdokrs-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
+alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
+alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
+alias cdokrs-okrs-service='cd $OKRS_PATH/applications/okrs-service'
+alias cdokrs-users-service='cd $OKRS_PATH/applications/users-service'
 
 # Change directory (SoulCycle)
 alias cdapi-tests='cd $PODIUMPATH/applications/api-tests'
