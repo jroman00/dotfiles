@@ -57,7 +57,7 @@ alias podium_stop='(cd $PODIUMPATH && docker-compose -f configs/global-db-compos
 
 # Docker aliases
 alias dexec='docker exec -it'
-alias dps='docker ps'
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 # Docker cleanup aliases
 alias dbomb='docker stop $(docker ps -aq); docker rmi $(docker images -aq)'
