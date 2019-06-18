@@ -12,6 +12,7 @@ alias sourcebp='. $HOME/.bash_profile'
 alias sourcebrc='. $HOME/.bashrc'
 
 # Change directory (personal)
+alias cdokrs-localenv='cd $OKRS_PATH'
 alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
 alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
 alias cdokrs-okr-service='cd $OKRS_PATH/applications/okr-service'
