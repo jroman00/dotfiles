@@ -55,6 +55,7 @@ alias cdmilestones='cd $GOPATH/src/github.com/soulcycle/milestones'
 alias cdpops='cd $GOPATH/src/github.com/soulcycle/pops'
 
 # Podium
+alias podium_down='(cd $PODIUMPATH && docker-compose -f configs/global-db-compose.yml down && docker-compose -f configs/global-cache-compose.yml down && docker-compose -f configs/global-pubsub-emulator-compose.yml down)'
 alias podium_start='(cd $PODIUMPATH && bin/setup-docker-network && bin/setup-global-db && bin/setup-global-cache && bin/setup-global-pubsub-emulator)'
 alias podium_stop='(cd $PODIUMPATH && docker-compose -f configs/global-db-compose.yml stop && docker-compose -f configs/global-cache-compose.yml stop && docker-compose -f configs/global-pubsub-emulator-compose.yml stop)'
 
