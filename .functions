@@ -2,7 +2,7 @@
 
 # Decrypt all secrets.yml files under current directory
 function decrypt_pops_secrets_in_dir() {
-  VAULT_PASSWORD_FILE=/Users/jroman/.ssh/ansiblevault.pops
+  VAULT_PASSWORD_FILE=/Users/jroman/.podium-local-av-password
   secrets=$(find . -type f -regex '.*/configs/.*.secrets.yml')
   for file in $secrets; do
     echo "Decrypting $file"
@@ -12,7 +12,7 @@ function decrypt_pops_secrets_in_dir() {
 
 # Encrypt all secrets.yml files under current directory
 function encrypt_pops_secrets_in_dir() {
-  VAULT_PASSWORD_FILE=/Users/jroman/.ssh/ansiblevault.pops
+  VAULT_PASSWORD_FILE=/Users/jroman/.podium-local-av-password
   secrets=$(find . -type f -regex '.*/configs/.*.secrets.yml')
   for file in $secrets; do
     echo "Encrypting $file"
