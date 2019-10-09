@@ -1,4 +1,2 @@
-export PODIUMPATH=$HOME/Development/soulcycle/podium-local
-export GOPATH="$PODIUMPATH/applications/go"
-export SOUL_CYCLE_SITE=$PODIUMPATH/applications/soul-cycle-site
+export LLPPATH=$HOME/Development/leaflink/llp-local
 export OKRS_PATH=$HOME/Development/jroman/okrs-localenv
