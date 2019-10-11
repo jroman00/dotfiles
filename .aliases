@@ -23,6 +23,7 @@ alias cdokrs-website='cd $OKRS_PATH/applications/website'
 
 # Change directory (LeafLink)
 alias cdleaflink='cd $LLPPATH/applications/leaflink'
+alias cdleaflink-info='cd $DEVELOPMENT_PATH/leaflink/leaflink-info'
 
 # Docker aliases
 alias dexec='docker exec -it'

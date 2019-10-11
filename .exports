@@ -1,5 +1,6 @@
-export LLPPATH=$HOME/Development/leaflink/llp-local
-export OKRS_PATH=$HOME/Development/jroman/okrs-localenv
+export DEVELOPMENT_PATH=$HOME/Development
+export LLPPATH=$DEVELOPMENT_PATH/leaflink/llp-local
+export OKRS_PATH=$DEVELOPMENT_PATH/jroman/okrs-localenv
 
 # Disable MacOS Catalina warning about bash vs zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
