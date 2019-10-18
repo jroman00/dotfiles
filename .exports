@@ -1,6 +1,7 @@
 export DEVELOPMENT_PATH=$HOME/Development
 export LLPPATH=$DEVELOPMENT_PATH/leaflink/llp-local
 export OKRS_PATH=$DEVELOPMENT_PATH/jroman/okrs-localenv
+export PODIUMPATH=$DEVELOPMENT_PATH/soulcycle/podium-local
 
 # Disable MacOS Catalina warning about bash vs zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
