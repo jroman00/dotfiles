@@ -82,7 +82,7 @@ function download_composer() {
 function gcb() {
   current_branch=$(git_branch_name)
 
-  if [[ $current_branch == "development" ]] || [[ $current_branch == "master" ]]; then
+  if [[ $current_branch == "development" ]] || [[ $current_branch == "master" ]] || [[ $current_branch == "staging" ]]; then
     echo "Cannot commit message with branch name $current_branch"
     return 1
   fi
@@ -132,8 +132,9 @@ function git_update_all() {
 function gprune() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
+  staging_exists=$(git rev-parse --verify --quiet staging)
 
-  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
     echo "Cannot prune $active_branch"
     return 1
   fi
@@ -143,6 +144,8 @@ function gprune() {
 
   if [[ $development_exists ]]; then
     trunk="development"
+  elif [[ $staging_exists ]]; then
+    trunk="staging"
   fi
 
   for i in "$@" ; do
@@ -170,8 +173,9 @@ function gprune() {
 function grebase() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
+  staging_exists=$(git rev-parse --verify --quiet staging)
 
-  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
     echo "Cannot rebase $active_branch"
     return 1
   fi
@@ -180,6 +184,8 @@ function grebase() {
 
   if [[ $development_exists ]]; then
     trunk="development"
+  elif [[ $staging_exists ]]; then
+    trunk="staging"
   fi
 
   for i in "$@" ; do
