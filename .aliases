@@ -22,8 +22,9 @@ alias cdokrs-user-service='cd $OKRS_PATH/applications/user-service'
 alias cdokrs-website='cd $OKRS_PATH/applications/website'
 
 # Change directory (LeafLink)
-alias cdleaflink='cd $LLPPATH/applications/leaflink'
 alias cdleaflink-info='cd $DEVELOPMENT_PATH/leaflink/leaflink-info'
+alias cdleaflink='cd $LLPPATH/applications/leaflink'
+alias cdllp='cd $LLPPATH'
 
 # Change directory (SoulCycle)
 alias cdapi-tests='cd $PODIUMPATH/applications/api-tests'
