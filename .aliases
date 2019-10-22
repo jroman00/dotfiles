@@ -137,3 +137,6 @@ command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Because I can't type python for some reason!
+alias pythong='python'
