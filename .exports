@@ -1,7 +1,14 @@
 export DEVELOPMENT_PATH=$HOME/Development
+
 export LLPPATH=$DEVELOPMENT_PATH/leaflink/llp-local
+export GOPATH="$LLPPATH/applications/go";
+export LLGOPATH="$GOPATH/src/github.com/leaflink";
+
 export OKRS_PATH=$DEVELOPMENT_PATH/jroman/okrs-localenv
 export PODIUMPATH=$DEVELOPMENT_PATH/soulcycle/podium-local
+
+# Lets you access your development binaries from your PATH
+export PATH=$PATH:$GOPATH/bin
 
 # Disable MacOS Catalina warning about bash vs zsh
 export BASH_SILENCE_DEPRECATION_WARNING=1
