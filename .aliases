@@ -57,11 +57,8 @@ alias cdw77='cd $PODIUMPATH/applications/w77'
 
 # Docker aliases
 alias dexec='docker exec -it'
+alias dnuke='docker stop $(docker ps -aq); docker rm $(docker ps -aq); docker rmi -f $(docker images -aq); docker volume prune -f; docker network prune -f'
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
-
-# Docker cleanup aliases
-alias dbomb='docker stop $(docker ps -aq); docker rmi $(docker images -aq)'
-alias dnuke='docker stop $(docker ps -aq); docker rm $(docker ps -aq); docker rmi -f $(docker images -aq); docker network prune -f'
 
 # Minikube aliases
 alias mk='minikube'
