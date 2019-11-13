@@ -34,7 +34,7 @@ function dcconnect() {
 
   if [[ ${#services[@]} -eq 1 ]]; then
     echo "Connecting to ${services[0]}..."
-    docker-compose exec "${services[0]}" sh
+    docker-compose exec "${services[0]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 
     return 0
   fi
@@ -57,7 +57,7 @@ function dcconnect() {
   done
 
   echo "Connecting to ${services[$selectedNum - 1]]}..."
-  docker-compose exec "${services[$selectedNum - 1]}" sh
+  docker-compose exec "${services[$selectedNum - 1]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 }
 
 # Download composer
