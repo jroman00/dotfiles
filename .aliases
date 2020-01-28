@@ -95,7 +95,9 @@ alias gx='git ls-files --directory --exclude-standard --others | xargs rm -rf'
 
 # Misc aliases
 alias av='ansible-vault'
-alias li='bin/local-init'
+alias blinit='bash bin/local-init.sh'
+alias blstart='bash bin/local-start.sh'
+alias blstop='bash bin/local-stop.sh'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
