@@ -1,25 +1,5 @@
 #!/usr/bin/env bash
 
-# Decrypt all secrets.yml files under current directory
-function decrypt_pops_secrets_in_dir() {
-  VAULT_PASSWORD_FILE=/Users/jroman/.podium-local-av-password
-  secrets=$(find . -type f -regex '.*/configs/.*.secrets.yml')
-  for file in $secrets; do
-    echo "Decrypting $file"
-    ansible-vault decrypt $file --vault-password-file=$VAULT_PASSWORD_FILE
-  done
-}
-
-# Encrypt all secrets.yml files under current directory
-function encrypt_pops_secrets_in_dir() {
-  VAULT_PASSWORD_FILE=/Users/jroman/.podium-local-av-password
-  secrets=$(find . -type f -regex '.*/configs/.*.secrets.yml')
-  for file in $secrets; do
-    echo "Encrypting $file"
-    ansible-vault encrypt $file --vault-password-file=$VAULT_PASSWORD_FILE
-  done
-}
-
 # Connect to a Docker Compose service
 function dcconnect() {
   IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services)
