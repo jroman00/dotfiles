@@ -12,6 +12,22 @@ function dcconnect() {
     return 1
   fi
 
+  # If a service name was provided, attempt to connect to it
+  if [[ -n "$1" ]]; then
+    # If the service is invalid (i.e. not in the list of services available)
+    if [[ ! " ${services[@]} " =~ " $1 " ]]; then
+      echo "ERROR: Service not found (service=$1)"
+
+      return 1
+    fi
+
+    echo "Connecting to $1..."
+    docker-compose exec "$1" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
+
+    return 0
+  fi
+
+  # If only one services exists, connect to it
   if [[ ${#services[@]} -eq 1 ]]; then
     echo "Connecting to ${services[0]}..."
     docker-compose exec "${services[0]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
