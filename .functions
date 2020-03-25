@@ -2,7 +2,7 @@
 
 # Connect to a Docker Compose service
 function dcconnect() {
-  IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services)
+  IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services | sort)
 
   numServices=${#services[@]}
 
