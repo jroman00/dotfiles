@@ -63,6 +63,13 @@ alias dexec='docker exec -it'
 alias dnuke='docker stop $(docker ps -q); docker rm $(docker ps -aq); docker rmi -f $(docker images -aq); docker volume prune -f; docker network prune -f'
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
+# Docker logs
+alias dlogcelery='docker logs -f $(docker-compose ps -q marketplace.app.celery)'
+alias dlogdb='docker logs -f $(docker-compose ps -q marketplace.app.db)'
+alias dlogredis='docker logs -f $(docker-compose ps -q marketplace.app.redis)'
+alias dlogweb='docker logs -f $(docker-compose ps -q marketplace.app.web)'
+alias dlogweb_fe='docker logs -f $(docker-compose ps -q marketplace.app.web_fe)'
+
 # Minikube aliases
 alias mk='minikube'
 alias mkde='eval $(minikube docker-env)'
