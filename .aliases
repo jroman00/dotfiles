@@ -20,6 +20,7 @@ alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
 alias cdokrs-okr-service='cd $OKRS_PATH/applications/okr-service'
 alias cdokrs-user-service='cd $OKRS_PATH/applications/user-service'
 alias cdokrs-website='cd $OKRS_PATH/applications/website'
+alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
 # Change directory (LeafLink)
 alias cdleaflink-info='cd $DEVELOPMENT_PATH/leaflink/leaflink-info'
