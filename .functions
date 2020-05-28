@@ -232,10 +232,16 @@ function install_linux() {
     return 1
   fi
 
-  size=$(stat --print="%s" "$1")
-
   date
-  sudo bash -c "dd if=$1 | pv -s $size | dd of=$device bs=4M"
+
+  if hash pv 2>/dev/null; then
+    size=$(stat --print="%s" "$1")
+    sudo bash -c "dd if=$1 | pv -s $size | dd of=$device bs=4M"
+  else
+    echo "pv not found. Running with no progress monitor..."
+    sudo dd if=$1 of=$device bs=4M
+  fi
+
   date
 }
 
@@ -269,9 +275,15 @@ function wipe_device() {
     return 1
   fi
 
-  size=$(sudo blockdev --getsize64 "$device")
-
   date
-  sudo bash -c "dd if=/dev/urandom | pv -s $size | dd of=$device bs=4M"
+
+  if hash pv 2>/dev/null; then
+    size=$(sudo blockdev --getsize64 "$device")
+    sudo bash -c "dd if=/dev/urandom | pv -s $size | dd of=$device bs=4M"
+  else
+    echo "pv not found. Running with no progress monitor..."
+    sudo dd if=/dev/urandom of=$device bs=4M
+  fi
+
   date
 }
