@@ -220,7 +220,7 @@ function install_linux() {
     return 1
   fi
 
-  lsblk -o NAME,LABEL
+  lsblk -o NAME,SIZE,LABEL
 
   echo ""
   read -rp "Which device would you like install to? " input
@@ -257,7 +257,7 @@ function touch_files() {
 
 # Wipe selected device by overwriting with random data
 function wipe_device() {
-  lsblk -o NAME,LABEL
+  lsblk -o NAME,SIZE,LABEL
 
   echo ""
   read -rp "Which device would you like to wipe? " input
