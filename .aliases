@@ -24,6 +24,7 @@ alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
 # Change directory (LeafLink)
 alias cdleaflink-info='cd $DEVELOPMENT_PATH/leaflink/leaflink-info'
+alias cdleaflink-ui='cd $LLPPATH/applications/leaflink-ui'
 alias cdleaflink='cd $LLPPATH/applications/leaflink'
 alias cdllf-api='cd $LLPPATH/applications/llf-api'
 alias cdllf-web='cd $LLPPATH/applications/llf-web'
