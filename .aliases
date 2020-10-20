@@ -68,6 +68,7 @@ alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.St
 
 # Docker logs
 alias dlogcelery='docker-compose ps -q marketplace.app.celery | xargs docker logs -f'
+alias dlogcelery_beat='docker-compose ps -q marketplace.app.celery_beat | xargs docker logs -f'
 alias dlogdb='docker-compose ps -q marketplace.app.db | xargs docker logs -f'
 alias dlogredis='docker-compose ps -q marketplace.app.redis | xargs docker logs -f'
 alias dlogweb='docker-compose ps -q marketplace.app.web | xargs docker logs -f'
