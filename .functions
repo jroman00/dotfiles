@@ -83,7 +83,7 @@ function gcb() {
     return 1
   fi
 
-  commit_branch=$(echo "$current_branch" | sed -E 's/^(bug|feature|hotfix|release|revert|task)\///')
+  commit_branch=$(echo "$current_branch" | sed -E 's/^(bug|feature|hotfix|release|revert|story|task)\///')
 
   git commit -m "$commit_branch: $1"
 }
