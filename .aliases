@@ -14,16 +14,16 @@ alias sourcebp='. $HOME/.bash_profile'
 alias sourcebrc='. $HOME/.bashrc'
 
 # Change directory (personal)
-alias cdokrs-localenv='cd $OKRS_PATH'
 alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
 alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
+alias cdokrs-localenv='cd $OKRS_PATH'
 alias cdokrs-okr-service='cd $OKRS_PATH/applications/okr-service'
 alias cdokrs-user-service='cd $OKRS_PATH/applications/user-service'
 alias cdokrs-website='cd $OKRS_PATH/applications/website'
 alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
 # Change directory (LeafLink)
-alias cdleaflink-info='cd $DEVELOPMENT_PATH/leaflink/leaflink-info'
+alias cdleaflink-info='cd $LLPPATH/applications/leaflink-info'
 alias cdleaflink-ui='cd $LLPPATH/applications/leaflink-ui'
 alias cdleaflink='cd $LLPPATH/applications/leaflink'
 alias cdllf-api='cd $LLPPATH/applications/llf-api'
