@@ -128,9 +128,10 @@ function git_update_all() {
 function gprune() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
+  main_exists=$(git rev-parse --verify --quiet main)
   staging_exists=$(git rev-parse --verify --quiet staging)
 
-  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "main" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
     echo "Cannot prune $active_branch"
     return 1
   fi
@@ -140,6 +141,8 @@ function gprune() {
 
   if [[ $development_exists ]]; then
     trunk="development"
+  elif [[ $main_exists ]]; then
+    trunk="main"
   elif [[ $staging_exists ]]; then
     trunk="staging"
   fi
@@ -169,9 +172,10 @@ function gprune() {
 function grebase() {
   active_branch=$(git_branch_name)
   development_exists=$(git rev-parse --verify --quiet development)
+  main_exists=$(git rev-parse --verify --quiet main)
   staging_exists=$(git rev-parse --verify --quiet staging)
 
-  if [[ $active_branch == "development" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
+  if [[ $active_branch == "development" ]] || [[ $active_branch == "main" ]] || [[ $active_branch == "master" ]] || [[ $active_branch == "staging" ]]; then
     echo "Cannot rebase $active_branch"
     return 1
   fi
@@ -180,6 +184,8 @@ function grebase() {
 
   if [[ $development_exists ]]; then
     trunk="development"
+  elif [[ $main_exists ]]; then
+    trunk="main"
   elif [[ $staging_exists ]]; then
     trunk="staging"
   fi
