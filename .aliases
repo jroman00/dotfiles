@@ -74,6 +74,10 @@ alias dlogredis='docker-compose ps -q marketplace.app.redis | xargs docker logs 
 alias dlogweb='docker-compose ps -q marketplace.app.web | xargs docker logs -f'
 alias dlogweb_fe='docker-compose ps -q marketplace.app.web_fe | xargs docker logs -f'
 
+# Docker attach
+alias dattachdb='docker attach $(docker-compose ps -q marketplace.app.db)'
+alias dattachweb='docker attach $(docker-compose ps -q marketplace.app.web)'
+
 # Minikube aliases
 alias mk='minikube'
 alias mkde='eval $(minikube docker-env)'
