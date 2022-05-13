@@ -22,7 +22,8 @@ alias cdokrs-user-service='cd $OKRS_PATH/applications/user-service'
 alias cdokrs-website='cd $OKRS_PATH/applications/website'
 alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
-# Change directory (LeafLink)
+# LeafLink Aliases
+## Change directory (LeafLink)
 alias cdapps='cd $LLPPATH/applications'
 alias cdleaflink-info='cd $LLPPATH/applications/leaflink-info'
 alias cdleaflink-ui='cd $LLPPATH/applications/leaflink-ui'
@@ -31,7 +32,10 @@ alias cdllf-api='cd $LLPPATH/applications/llf-api'
 alias cdllf-web='cd $LLPPATH/applications/llf-web'
 alias cdllp-local='cd $LLPPATH'
 
-# Change directory (SoulCycle)
+alias lllogin='bash $LLPPATH/bin/daily-login.sh'
+
+# SoulCycle Aliases
+## Change directory (SoulCycle)
 alias cdsc-api-tests='cd $PODIUMPATH/applications/api-tests'
 alias cdsc-backrow='cd $PODIUMPATH/applications/backrow'
 alias cdsc-bayside='cd $PODIUMPATH/applications/bayside'
