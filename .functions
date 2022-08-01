@@ -168,6 +168,25 @@ function gprune() {
   git stash && git checkout "$trunk" && git pull origin "$trunk" && git branch -${delete_flag} "$active_branch" && git fetch --prune
 }
 
+# Git: Push to origin
+function gpush() {
+  force=false
+
+  for i in "$@" ; do
+    case "$i" in
+      ( -f | --force ) force=true; shift;;
+    esac
+  done
+
+  if [[ $force == true ]]; then
+    force_flag="--force-with-lease"
+  else
+    force_flag=""
+  fi
+
+  git push origin $(git_branch_name) $force_flag
+}
+
 # Git: Rebase current branch
 function grebase() {
   active_branch=$(git_branch_name)
