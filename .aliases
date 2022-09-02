@@ -32,6 +32,8 @@ alias cdllf-api='cd $LLPPATH/applications/llf-api'
 alias cdllf-web='cd $LLPPATH/applications/llf-web'
 alias cdllp-local='cd $LLPPATH'
 alias cdtms-service='cd $LLPPATH/applications/tms-service'
+alias cdtraceability-service='cd $LLPPATH/applications/traceability-service'
+alias cdwms-service='cd $LLPPATH/applications/llp-wms-service'
 
 alias lllogin='bash $LLPPATH/bin/daily-login.sh'
 
