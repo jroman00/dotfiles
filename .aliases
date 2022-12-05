@@ -75,12 +75,12 @@ alias dprune='docker volume prune -f; docker images -q --filter "dangling=true" 
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 # Docker logs
-alias dlogcelery='docker-compose ps -q marketplace.app.celery | xargs docker logs -f'
-alias dlogcelery_beat='docker-compose ps -q marketplace.app.celery_beat | xargs docker logs -f'
-alias dlogdb='docker-compose ps -q marketplace.app.db | xargs docker logs -f'
-alias dlogredis='docker-compose ps -q marketplace.app.redis | xargs docker logs -f'
-alias dlogweb='docker-compose ps -q marketplace.app.web | xargs docker logs -f'
-alias dlogweb_fe='docker-compose ps -q marketplace.app.web_fe | xargs docker logs -f'
+alias dlogcelery='docker-compose ps -q marketplace.app.celery | xargs docker logs -f --tail 100 --since 1h'
+alias dlogcelery_beat='docker-compose ps -q marketplace.app.celery_beat | xargs docker logs -f --tail 100 --since 1h'
+alias dlogdb='docker-compose ps -q marketplace.app.db | xargs docker logs -f --tail 100 --since 1h'
+alias dlogredis='docker-compose ps -q marketplace.app.redis | xargs docker logs -f --tail 100 --since 1h'
+alias dlogweb='docker-compose ps -q marketplace.app.web | xargs docker logs -f --tail 100 --since 1h'
+alias dlogweb_fe='docker-compose ps -q marketplace.app.web_fe | xargs docker logs -f --tail 100 --since 1h'
 
 # Docker attach
 alias dattachdb='docker attach $(docker-compose ps -q marketplace.app.db)'
