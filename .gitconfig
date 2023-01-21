@@ -154,6 +154,10 @@
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
 
+[init]
+	# Default to main instead of master
+	defaultBranch = main
+
 [merge]
 
 	# Include summaries of merged commits in newly created merge commit messages
