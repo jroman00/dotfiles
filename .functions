@@ -189,7 +189,7 @@ function gpush() {
 
 # Git: Rebase current branch
 function grebase() {
-  active_branch=$(git_branch_name)
+  active_branch=$(git rev-parse --abbrev-ref HEAD)
   development_exists=$(git rev-parse --verify --quiet development)
   main_exists=$(git rev-parse --verify --quiet main)
   staging_exists=$(git rev-parse --verify --quiet staging)
