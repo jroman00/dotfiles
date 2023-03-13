@@ -7,6 +7,9 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 fi
 
+# Shell aliases
+alias sourcezshrc='. $HOME/.zshrc'
+
 # Change directory (personal)
 alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
 alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
@@ -19,6 +22,7 @@ alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 # Justworks Aliases
 ## Change directory (Justworks)
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
+alias cdemerald-falcon='cd $DEVELOPMENT_PATH/justworkshr/emerald-falcon'
 
 # LeafLink Aliases
 ## Change directory (LeafLink)
