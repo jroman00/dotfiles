@@ -10,6 +10,9 @@ fi
 # Shell aliases
 alias sourcezshrc='. $HOME/.zshrc'
 
+# Change directory (common)
+alias cddev='cd $DEVELOPMENT_PATH'
+
 # Change directory (personal)
 alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
 alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
