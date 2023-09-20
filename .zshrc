@@ -111,4 +111,3 @@ done;
 unset file;
 
 source /opt/secrets/current/dev_env_exports.sh
-export PATH=$(pyenv root)/shims:$PATH
