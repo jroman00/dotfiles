@@ -110,7 +110,5 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
 source /opt/secrets/current/dev_env_exports.sh
 export PATH=$(pyenv root)/shims:$PATH
