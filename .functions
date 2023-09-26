@@ -109,7 +109,7 @@ function git_update_all() {
   echo "Pulling in latest changes for all repositories..."
 
   # Find all git repositories and process them
-  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname); do
+  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname | sort -f); do
     echo ""
     echo "Updating $i..."
 
@@ -130,7 +130,7 @@ function git_contains_master() {
   echo ""
 
   # Find all git repositories and process them
-  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname); do
+  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname | sort -f); do
     (
       cd "$i" || exit
 
