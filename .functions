@@ -108,15 +108,39 @@ function git_line_count() {
 function git_update_all() {
   echo "Pulling in latest changes for all repositories..."
 
-  # Find all git repositories and update it to the main latest revision
-  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3-); do
+  # Find all git repositories and process them
+  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname); do
     echo ""
     echo "Updating $i..."
 
     (
-      cd "$(dirname "$i")" || exit
+      cd "$i" || exit
 
       gfp
+    )
+  done
+
+  echo ""
+  echo "Complete!"
+}
+
+# Git: Determine which git subdirectories contain a master branch
+function git_contains_master() {
+  echo "Checking for master branch..."
+  echo ""
+
+  # Find all git repositories and process them
+  for i in $(find . -maxdepth 2 -mindepth 2 -name ".git" | cut -c 3- | xargs dirname); do
+    (
+      cd "$i" || exit
+
+      master_exists=$(git rev-parse --verify --quiet master)
+
+      if [[ $master_exists ]]; then
+        print "$i has master branch"
+      else
+        print "$i does not have master branch"
+      fi
     )
   done
 
