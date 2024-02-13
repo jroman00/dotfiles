@@ -14,6 +14,7 @@ alias sourcezshrc='. $HOME/.zshrc'
 alias cddev='cd $DEVELOPMENT_PATH'
 
 # Change directory (personal)
+alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
 alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
 alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
 alias cdokrs-localenv='cd $OKRS_PATH'
