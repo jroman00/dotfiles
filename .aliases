@@ -25,6 +25,7 @@ alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
 # Justworks Aliases
 ## Change directory (Justworks)
+alias cdclockface='cd $DEVELOPMENT_PATH/justworkshr/clockface'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
 alias cdemerald-falcon='cd $DEVELOPMENT_PATH/justworkshr/emerald-falcon'
 alias cdphoenix='cd $DEVELOPMENT_PATH/justworkshr/phoenix'
