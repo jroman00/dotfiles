@@ -2,7 +2,7 @@
 
 # Connect to a Docker Compose service
 function dcconnect() {
-  IFS=$'\n' read -d '' -r -a services < <(docker-compose config --services | sort)
+  services=(${(f)"$(docker compose config --services | sort)"})
 
   numServices=${#services[@]}
 
@@ -22,7 +22,7 @@ function dcconnect() {
     fi
 
     echo "Connecting to $1..."
-    docker-compose exec "$1" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
+    docker compose exec "$1" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 
     return 0
   fi
@@ -30,7 +30,7 @@ function dcconnect() {
   # If only one services exists, connect to it
   if [[ ${#services[@]} -eq 1 ]]; then
     echo "Connecting to ${services[0]}..."
-    docker-compose exec "${services[0]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
+    docker compose exec "${services[0]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 
     return 0
   fi
@@ -45,15 +45,15 @@ function dcconnect() {
         ((num++))
     done
 
-    read -rp 'Please select the number of the service you wish to connect to ("q" to quit): ' selectedNum
+    read -r 'selectedNum?Please select the number of the service you wish to connect to ("q" to quit): '
 
     if [[ $selectedNum == 'q' ]]; then
       return 0
     fi
   done
 
-  echo "Connecting to ${services[$selectedNum - 1]]}..."
-  docker-compose exec "${services[$selectedNum - 1]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
+  echo "Connecting to ${services[$selectedNum]}..."
+  docker compose exec "${services[$selectedNum]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 }
 
 # Download composer
