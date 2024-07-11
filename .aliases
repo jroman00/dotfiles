@@ -81,7 +81,7 @@ alias dnuke='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; 
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 # Docker compose aliases
-alias dc='docker-compose'
+alias dc='docker compose'
 alias dcc='dcconnect' # See definition in .functions
 
 # Git aliases
