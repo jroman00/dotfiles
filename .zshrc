@@ -111,4 +111,4 @@ done;
 unset file;
 
 source /opt/secrets/current/dev_env_exports.sh
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
