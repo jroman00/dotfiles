@@ -29,8 +29,8 @@ function dcconnect() {
 
   # If only one services exists, connect to it
   if [[ ${#services[@]} -eq 1 ]]; then
-    echo "Connecting to ${services[0]}..."
-    docker compose exec "${services[0]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
+    echo "Connecting to ${services[1]}..."
+    docker compose exec "${services[1]}" sh -c "if [ -x /bin/bash ]; then /bin/bash; else /bin/sh; fi"
 
     return 0
   fi
