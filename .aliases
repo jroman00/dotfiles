@@ -28,6 +28,7 @@ alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 alias cdcf='cd $DEVELOPMENT_PATH/justworkshr/clockface'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
 alias cdemerald-falcon='cd $DEVELOPMENT_PATH/justworkshr/emerald-falcon'
+alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdpaytax-internal='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdphoenix='cd $DEVELOPMENT_PATH/justworkshr/phoenix'
 
