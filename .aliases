@@ -76,9 +76,9 @@ alias cdsc-users-service='cd $PODIUMPATH/applications/users-service'
 alias cdsc-w77='cd $PODIUMPATH/applications/w77'
 
 # Docker aliases
-alias dbomb='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; docker volume prune -f --all; docker network prune -f'
+alias dbomb='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; docker images -aq | xargs docker rmi -f; docker volume prune -f --all; docker network prune -f'
 alias dexec='docker exec -it'
-alias dnuke='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; docker images -aq | xargs docker rmi -f; docker volume prune -f --all; docker network prune -f; docker builder prune -f --all'
+alias dnuke='dbomb && docker builder prune -f --all'
 alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
 # Docker compose aliases
