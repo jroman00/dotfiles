@@ -100,8 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /opt/dev/dev.sh
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -110,5 +108,7 @@ for file in ~/.{path,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-source /opt/secrets/current/dev_env_exports.sh
+if [ -f /opt/secrets/current/dev_env_exports.sh ]; then
+  source /opt/secrets/current/dev_env_exports.sh
+fi;
 # source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
