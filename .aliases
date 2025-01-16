@@ -31,6 +31,7 @@ alias cdemerald-falcon='cd $DEVELOPMENT_PATH/justworkshr/emerald-falcon'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdpaytax-internal='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdphoenix='cd $DEVELOPMENT_PATH/justworkshr/phoenix'
+alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
 
 # LeafLink Aliases
 ## Change directory (LeafLink)
