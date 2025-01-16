@@ -15,66 +15,14 @@ alias cddev='cd $DEVELOPMENT_PATH'
 
 # Change directory (personal)
 alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
-alias cdokrs-dashboard-backend='cd $OKRS_PATH/applications/dashboard-backend'
-alias cdokrs-dashboard-frontend='cd $OKRS_PATH/applications/dashboard-frontend'
-alias cdokrs-localenv='cd $OKRS_PATH'
-alias cdokrs-okr-service='cd $OKRS_PATH/applications/okr-service'
-alias cdokrs-user-service='cd $OKRS_PATH/applications/user-service'
-alias cdokrs-website='cd $OKRS_PATH/applications/website'
-alias cdtax-service-poc='cd $DEVELOPMENT_PATH/jroman00/tax-service-poc'
 
 # Justworks Aliases
 ## Change directory (Justworks)
 alias cdcf='cd $DEVELOPMENT_PATH/justworkshr/clockface'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
-alias cdemerald-falcon='cd $DEVELOPMENT_PATH/justworkshr/emerald-falcon'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdpaytax-internal='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
-alias cdphoenix='cd $DEVELOPMENT_PATH/justworkshr/phoenix'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
-
-# LeafLink Aliases
-## Change directory (LeafLink)
-alias cdll-apps='cd $LLPPATH/applications'
-alias cdll-leaflink-info='cd $LLPPATH/applications/leaflink-info'
-alias cdll-leaflink-ui='cd $LLPPATH/applications/leaflink-ui'
-alias cdll-leaflink='cd $LLPPATH/applications/leaflink'
-alias cdll-llf-api='cd $LLPPATH/applications/llf-api'
-alias cdll-llf-web='cd $LLPPATH/applications/llf-web'
-alias cdll-llp-local='cd $LLPPATH'
-alias cdll-tms-service='cd $LLPPATH/applications/tms-service'
-alias cdll-traceability-service='cd $LLPPATH/applications/traceability-service'
-alias cdll-wms-service='cd $LLPPATH/applications/llp-wms-service'
-
-# SoulCycle Aliases
-## Change directory (SoulCycle)
-alias cdsc-api-tests='cd $PODIUMPATH/applications/api-tests'
-alias cdsc-backrow='cd $PODIUMPATH/applications/backrow'
-alias cdsc-bayside='cd $PODIUMPATH/applications/bayside'
-alias cdsc-bikeshed='cd $PODIUMPATH/applications/bikeshed'
-alias cdsc-bouncer='cd $PODIUMPATH/applications/bouncer'
-alias cdsc-candlelight='cd $PODIUMPATH/applications/candlelight'
-alias cdsc-dashboard-backend='cd $PODIUMPATH/applications/dashboard-backend'
-alias cdsc-dashboard-frontend='cd $PODIUMPATH/applications/dashboard-frontend'
-alias cdsc-digital-signatures-backend='cd $PODIUMPATH/applications/digital-signatures-backend'
-alias cdsc-digital-signatures-frontend='cd $PODIUMPATH/applications/digital-signatures-frontend'
-alias cdsc-gbp-backend='cd $PODIUMPATH/applications/gbp-backend'
-alias cdsc-gbp-frontend='cd $PODIUMPATH/applications/gbp-frontend'
-alias cdsc-gbp-website-backend='cd $PODIUMPATH/applications/gbp-website-backend'
-alias cdsc-gbp-website-frontend='cd $PODIUMPATH/applications/gbp-website-frontend'
-alias cdsc-gomigrate-notifs='cd $PODIUMPATH/applications/gomigrate-notifications'
-alias cdsc-hourglass='cd $PODIUMPATH/applications/hourglass'
-alias cdsc-loadtests='cd $PODIUMPATH/applications/podium-loadtests'
-alias cdsc-mail-carrier='cd $PODIUMPATH/applications/mail-carrier'
-alias cdsc-pops-bot='cd $PODIUMPATH/applications/pops-bot'
-alias cdsc-post-office='cd $PODIUMPATH/applications/post-office'
-alias cdsc-scs='cd $PODIUMPATH/applications/soul-cycle-site'
-alias cdsc-series-generator-backend='cd $PODIUMPATH/applications/series-generator-backend'
-alias cdsc-series-generator-frontend='cd $PODIUMPATH/applications/series-generator-frontend'
-alias cdsc-silk-road='cd $PODIUMPATH/applications/silk-road'
-alias cdsc-soulcyclesite='cd $PODIUMPATH/applications/soul-cycle-site'
-alias cdsc-users-service='cd $PODIUMPATH/applications/users-service'
-alias cdsc-w77='cd $PODIUMPATH/applications/w77'
 
 # Docker aliases
 alias dbomb='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; docker images -aq | xargs docker rmi -f; docker volume prune -f --all; docker network prune -f'
