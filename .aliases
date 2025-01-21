@@ -21,7 +21,7 @@ alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
 alias cdcf='cd $DEVELOPMENT_PATH/justworkshr/clockface'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
-alias cdpaytax-internal='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
+alias cdpit='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
 
 # Docker aliases
