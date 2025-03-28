@@ -19,8 +19,10 @@ alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
 
 # Justworks Aliases
 ## Change directory (Justworks)
+alias cdach_fs='cd $DEVELOPMENT_PATH/justworkshr/ach_fs'
 alias cdcf='cd $DEVELOPMENT_PATH/justworkshr/clockface'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
+alias cdpay='cd $DEVELOPMENT_PATH/justworkshr/pay'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdpit='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
