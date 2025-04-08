@@ -2,8 +2,11 @@
 
 # Application aliases
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
-  alias cursor='/Applications/Cursor.app/Contents/Resources/app/bin/code'
+  if [ -d "/Applications/Cursor.app" ]; then
+    alias code='/Applications/Cursor.app/Contents/Resources/app/bin/code'
+  else
+    alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+  fi
   alias google-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
   alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 fi
@@ -76,7 +79,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias grep='grep --color=auto'
 
-# Enable aliases to be sudo’ed
+# Enable aliases to be sudo'ed
 alias sudo='sudo '
 
 # macOS has no `md5sum`, so use `md5` as a fallback
