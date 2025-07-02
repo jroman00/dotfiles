@@ -111,5 +111,3 @@ unset file;
 if [ -f /opt/secrets/current/dev_env_exports.sh ]; then
   source /opt/secrets/current/dev_env_exports.sh
 fi;
-
-echo -e '. "$HOME/.asdf/asdf.sh"\n\n# append completions to fpath\nfpath=(${ASDF_DIR}/completions $fpath)\n# initialise completions with ZSH compinit\nautoload -Uz compinit && compinit' >> ~/.zshrc
