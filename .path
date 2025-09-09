@@ -64,3 +64,8 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f "/opt/dev/dev.sh" ]; then
   source /opt/dev/dev.sh
 fi
+
+# Load ASDF if available
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  source "$HOME/.asdf/asdf.sh"
+fi
