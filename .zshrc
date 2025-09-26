@@ -111,3 +111,9 @@ unset file;
 if [ -f /opt/secrets/current/dev_env_exports.sh ]; then
   source /opt/secrets/current/dev_env_exports.sh
 fi;
+
+# Docker CLI completions
+fpath=(/Users/justinroman/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
