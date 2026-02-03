@@ -117,3 +117,5 @@ fpath=(/Users/justinroman/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+. "$HOME/.local/bin/env"
