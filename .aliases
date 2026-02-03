@@ -36,6 +36,9 @@ alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdpit='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
 
+# Claude aliases
+alias c='claude'
+
 # Docker aliases
 alias dbomb='docker ps -q | xargs docker stop; docker ps -aq | xargs docker rm; docker images -aq | xargs docker rmi -f; docker volume prune -f --all; docker network prune -f'
 alias dexec='docker exec -it'
