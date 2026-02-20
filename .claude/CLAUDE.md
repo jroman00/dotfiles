@@ -9,14 +9,28 @@ Format responses for skimmability:
 - Use headers to separate distinct topics in longer responses
 - Fragments and shorthand are fine — prioritize scannability over proper grammar
 
+## Code Changes
+
+- Don't add unsolicited refactoring, comments, or docstrings to code you didn't change
+- Don't over-engineer — only do what's asked
+- Follow existing project conventions for formatting, linting, and style
+
+## Git
+
+- When creating branches, prefix them with `jroman00/` to indicate they came from me.
+- Don't commit unless explicitly asked
+- Don't push unless explicitly asked
+- Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages (e.g., `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`)
+- Ask before any destructive git operation (force push, reset --hard, deleting branches)
+
 ## GitHub
 
 - Your primary method for interacting with GitHub should be the GitHub CLI.
 
-## Git
-
-- When creating branches, prefix them with jroman00/ to indicate they came from me.
-
 ## Plans
 
 - At the end of each plan, give me a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
+
+## Error Handling
+
+- If a command or approach fails, don't retry the same thing — change your approach or ask me
