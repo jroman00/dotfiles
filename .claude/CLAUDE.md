@@ -34,3 +34,11 @@ Format responses for skimmability:
 ## Error Handling
 
 - If a command or approach fails, don't retry the same thing — change your approach or ask me
+
+## Context
+
+- Sr. Engineering Manager working in Web / SaaS
+- Codebase landscape: monolith + service-oriented architecture
+- Oversees the **Payments** and **Payroll** Mission Teams within the **Workforce Payments** Domain
+  - **Payments**: platform powering all money movement (payroll, partners, agencies, cross-border) — pods: Payments Engine, Payments Integrations, Payments Tooling
+  - **Payroll**: running payroll accurately/on-time, expanding payroll product, ops tooling — pod: Payroll Orchestrator
