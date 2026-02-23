@@ -20,6 +20,5 @@ Thumbs.db
 # Extra settings not to be committed
 /.extra
 
-# Claude directory - only track CLAUDE.md
-/.claude/*
-!/.claude/CLAUDE.md
+# Claude directory - ignore settings.local.json
+.claude/settings.local.json
