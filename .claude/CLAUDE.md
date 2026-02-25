@@ -17,7 +17,8 @@ Format responses for skimmability:
 
 ## Git
 
-- When creating branches, prefix them with `jroman00/` to indicate they came from me.
+- Never work on the `main`/`master` branch directly
+- When creating branches, prefix them with `jroman00/` to indicate they came from me
 - Don't commit unless explicitly asked
 - Don't push unless explicitly asked
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages (e.g., `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`)

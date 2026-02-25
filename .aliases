@@ -18,14 +18,16 @@ alias sourcezshrc='. $HOME/.zshrc'
 alias cddev='cd $DEVELOPMENT_PATH'
 
 # Change directory (personal)
+alias cdjroman00='cd $DEVELOPMENT_PATH/jroman00'
 alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
+alias cdclaude-playground='cd $DEVELOPMENT_PATH/jroman00/claude-playground'
 
 # Justworks Aliases
 ## Change directory (Justworks)
+alias cdjustworks='cd $DEVELOPMENT_PATH/justworkshr'
 alias cdach_fs='cd $DEVELOPMENT_PATH/justworkshr/ach_fs'
 alias cdbanksy='cd $DEVELOPMENT_PATH/justworkshr/banksy'
 alias cdcf='cd $DEVELOPMENT_PATH/justworkshr/clockface'
-alias cdclaude-playground='cd $DEVELOPMENT_PATH/claude-playground'
 alias cdclockwork_web='cd $DEVELOPMENT_PATH/justworkshr/clockwork_web'
 alias cdgeneral-ledger-service='cd $DEVELOPMENT_PATH/justworkshr/general-ledger-service'
 alias cdglobal-payroll='cd $DEVELOPMENT_PATH/justworkshr/global-payroll'
@@ -33,7 +35,6 @@ alias cdledger='cd $DEVELOPMENT_PATH/justworkshr/general-ledger-service'
 alias cdmoat='cd $DEVELOPMENT_PATH/justworkshr/moat'
 alias cdpay='cd $DEVELOPMENT_PATH/justworkshr/pay'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
-alias cdpit='cd $DEVELOPMENT_PATH/justworkshr/paytax-internal'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
 
 # Claude aliases
