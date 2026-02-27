@@ -17,7 +17,6 @@ Format responses for skimmability:
 
 ## Git
 
-- Never work on the `main`/`master` branch directly
 - When creating branches, prefix them with `jroman00/` to indicate they came from me
 - Don't commit unless explicitly asked
 - Don't push unless explicitly asked
