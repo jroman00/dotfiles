@@ -37,6 +37,7 @@ alias cdhq-fe='cd $DEVELOPMENT_PATH/justworkshr/hq-fe'
 alias cdledger='cd $DEVELOPMENT_PATH/justworkshr/general-ledger-service'
 alias cdmoat='cd $DEVELOPMENT_PATH/justworkshr/moat'
 alias cdpay='cd $DEVELOPMENT_PATH/justworkshr/pay'
+alias cdpayroll='cd $DEVELOPMENT_PATH/justworkshr/payroll'
 alias cdpayroll-platform='cd $DEVELOPMENT_PATH/justworkshr/payroll-platform'
 alias cdtax-calc-engine='cd $DEVELOPMENT_PATH/justworkshr/tax-calc-engine'
 
