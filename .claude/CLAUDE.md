@@ -31,6 +31,18 @@ Format responses for skimmability:
 
 - At the end of each plan, give me a list of unresolved questions to answer, if any. Make the questions extremely concise. Sacrifice grammar for the sake of concision.
 
+## Plugin Management
+
+- When asked to remove, uninstall, or disable a plugin/skill, check ALL config files, cache directories, and settings entries. Do not stop after the first removal — verify nothing remains before reporting completion.
+
+## Debugging
+
+- When debugging an issue, investigate root causes before proposing workarounds. If a workaround is suggested and user pushes back, dig deeper into the actual mechanism.
+
+## Docker / Local Dev
+
+- When a project uses Docker for local development, use multi-stage builds. Prefer modifying existing docker-compose.yaml over creating separate dev files. Be aware of corporate TLS proxy certificates that may affect Docker builds.
+
 ## Error Handling
 
 - If a command or approach fails, don't retry the same thing — change your approach or ask me
