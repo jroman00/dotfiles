@@ -21,7 +21,7 @@ alias cddev='cd $DEVELOPMENT_PATH'
 alias cdjroman00='cd $DEVELOPMENT_PATH/jroman00'
 alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
 alias cdclaude-playground='cd $DEVELOPMENT_PATH/jroman00/claude-playground'
-alias cdfamily-matters-erg='cd $DEVELOPMENT_PATH/jroman00/family-matters-erg'
+alias cdfamilymatters-erg='cd $DEVELOPMENT_PATH/jroman00/familymatters-erg'
 alias cdvolleyball='cd $DEVELOPMENT_PATH/jroman00/volleyball'
 
 # Justworks Aliases
