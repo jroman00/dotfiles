@@ -43,6 +43,10 @@ Format responses for skimmability:
 
 - When a project uses Docker for local development, use multi-stage builds. Prefer modifying existing docker-compose.yaml over creating separate dev files. Be aware of corporate TLS proxy certificates that may affect Docker builds.
 
+## Output Files
+
+- When outputting content to a Markdown file, prefix the filename with `YYYY-MM-DD-` (e.g., `2026-03-26-tech-spec-auth-redesign.md`)
+
 ## Error Handling
 
 - If a command or approach fails, don't retry the same thing — change your approach or ask me
