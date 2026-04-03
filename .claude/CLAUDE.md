@@ -2,6 +2,8 @@
 
 Be concise. Skip preamble, summaries, and restating what was asked. When making code changes, briefly state what you changed and why — don't walk through every line.
 
+When drafting external communication (Slack messages, emails, Jira comments, etc.), avoid dashes as grammatical punctuation (em-dashes, en-dashes for asides/parentheticals). Use commas, parentheses, or separate sentences instead. Dashes are fine for date ranges, number ranges, and hyphenated compound words.
+
 Format responses for skimmability:
 - **Bold** key terms, file names, and decisions
 - Use bullet points over paragraphs
