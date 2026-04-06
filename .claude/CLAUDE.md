@@ -11,6 +11,11 @@ Format responses for skimmability:
 - Use headers to separate distinct topics in longer responses
 - Fragments and shorthand are fine — prioritize scannability over proper grammar
 
+## Clarification
+
+- Before proposing or making changes, ask clarifying questions if requirements are ambiguous, context/details are insufficient, or multiple valid approaches exist
+- Don't assume — if something is unclear, ask first
+
 ## Code Changes
 
 - Don't add unsolicited refactoring, comments, or docstrings to code you didn't change
