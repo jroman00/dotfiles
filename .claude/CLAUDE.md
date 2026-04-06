@@ -16,6 +16,13 @@ Format responses for skimmability:
 - Before proposing or making changes, ask clarifying questions if requirements are ambiguous, context/details are insufficient, or multiple valid approaches exist
 - Don't assume — if something is unclear, ask first
 
+## Verification
+
+- Read actual code before stating conclusions — don't infer behavior from function names, comments, tickets, or docs
+- If a claim is about data, verify with a query before asserting
+- If you can't verify something, say so explicitly with `[UNVERIFIED]`
+- Don't default to writing code — ask whether I want investigation or implementation if unclear
+
 ## Code Changes
 
 - Don't add unsolicited refactoring, comments, or docstrings to code you didn't change
