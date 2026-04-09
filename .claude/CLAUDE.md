@@ -16,7 +16,7 @@ Format responses for skimmability:
 - Before proposing or making changes, ask clarifying questions if requirements are ambiguous, context/details are insufficient, or multiple valid approaches exist
 - Don't assume — if something is unclear, ask first
 - Never use placeholders like "[FILL IN]", "[TBD]", or "[WHO?]" in output — if you don't know the answer, ask me before generating the output
-- When there are multiple open questions, ask them all at once, then wait for my responses before proceeding. If my answers raise new questions, ask those too. Don't produce the final output until all unknowns are resolved.
+- When there are multiple open questions, ask them all at once using a numbered list so responses can reference by number (e.g., "1. yes, 2. no"). Wait for my responses before proceeding. If my answers raise new questions, ask those too. Don't produce the final output until all unknowns are resolved.
 
 ## Verification
 
