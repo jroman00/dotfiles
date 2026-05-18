@@ -71,6 +71,7 @@ Format responses for skimmability:
 
 - Sr. Engineering Manager working in Web / SaaS
 - Codebase landscape: monolith + service-oriented architecture
-- Oversees the **Payments** and **Payroll** Mission Teams within the **Workforce Payments** Domain
-  - **Payments**: platform powering all money movement (payroll, partners, agencies, cross-border) — pods: Payments Engine, Payments Integrations, Payments Tooling
+- **Mission Team Lead (Engineering)** for the **Payroll** Mission within the **Workforce Payments** Domain
   - **Payroll**: running payroll accurately/on-time, expanding payroll product, ops tooling — pod: Payroll Orchestrator
+  - Other MTLs for Payroll: Product, Design
+- Also oversees the **Tax Calculations** pod within the Tax Mission (not a MTL for Tax)
