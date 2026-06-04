@@ -4,6 +4,8 @@ Be concise. Skip preamble, summaries, and restating what was asked. When making 
 
 When drafting external communication (Slack messages, emails, Jira comments, etc.), avoid dashes as grammatical punctuation (em-dashes, en-dashes for asides/parentheticals). Use commas, parentheses, or separate sentences instead. Dashes are fine for date ranges, number ranges, and hyphenated compound words.
 
+When a bullet or numbered list item has a bold heading followed by a colon or dash, use Title Case for the heading and capitalize the first word of the continuation text (e.g., "**Row Volume** — Now that we're..." not "**Row volume** — now that we're...").
+
 Format responses for skimmability:
 - **Bold** key terms, file names, and decisions
 - Use bullet points over paragraphs
@@ -38,6 +40,10 @@ Format responses for skimmability:
 - Don't push unless explicitly asked
 - Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages (e.g., `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`)
 - Ask before any destructive git operation (force push, reset --hard, deleting branches)
+
+## Slack
+
+- NEVER send Slack messages. At most, create drafts. Default behavior is to provide text for copy/paste; only create a draft if explicitly asked.
 
 ## GitHub
 
