@@ -118,4 +118,4 @@ compinit
 # End of Docker CLI completions
 
 # eval $(/opt/homebrew/bin/brew shellenv)
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
