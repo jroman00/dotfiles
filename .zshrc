@@ -119,3 +119,5 @@ compinit
 
 # eval $(/opt/homebrew/bin/brew shellenv)
 # . "$HOME/.local/bin/env"
+
+eval "$(direnv hook zsh)"
