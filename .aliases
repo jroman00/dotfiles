@@ -19,6 +19,7 @@ alias cddev='cd $DEVELOPMENT_PATH'
 
 # Change directory (personal)
 alias cddotfiles='cd $HOME/dotfiles'
+alias cdskills='cd $HOME/.claude/skills'
 alias cdjroman00='cd $DEVELOPMENT_PATH/jroman00'
 alias cdcapex-calculator='cd $DEVELOPMENT_PATH/jroman00/capex-calculator'
 alias cdclaude-playground='cd $DEVELOPMENT_PATH/jroman00/claude-playground'
