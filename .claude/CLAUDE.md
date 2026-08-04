@@ -24,6 +24,7 @@ Format responses for skimmability:
 
 - Read actual code before stating conclusions — don't infer behavior from function names, comments, tickets, or docs
 - If a claim is about data, verify with a query before asserting
+- **Never state what day of the week a date falls on without first running `date` to check** — don't compute days of the week from memory; always verify programmatically
 - If you can't verify something, say so explicitly with `[UNVERIFIED]`
 - Don't default to writing code — ask whether I want investigation or implementation if unclear
 
