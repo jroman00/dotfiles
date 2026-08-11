@@ -74,11 +74,3 @@ Format responses for skimmability:
 
 - If a command or approach fails, don't retry the same thing — change your approach or ask me
 
-## Context
-
-- Sr. Engineering Manager working in Web / SaaS
-- Codebase landscape: monolith + service-oriented architecture
-- **Mission Team Lead (Engineering)** for the **Payroll** Mission within the **Workforce Payments** Domain
-  - **Payroll**: running payroll accurately/on-time, expanding payroll product, ops tooling — pod: Payroll Orchestration
-  - Other MTLs for Payroll: Product, Design
-- Also oversees the **Tax Calculations** pod within the Tax Mission (not a MTL for Tax)
