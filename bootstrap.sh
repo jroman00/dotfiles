@@ -88,6 +88,7 @@ function doPrivate() {
 			cat "$private_claude"
 		} > "$dest"
 	else
+		echo "⚠️  Private dotfiles not found ($private_claude). Using public CLAUDE.md only.";
 		cp "$public_claude" "$dest"
 	fi
 }
