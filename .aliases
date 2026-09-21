@@ -6,8 +6,8 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
   alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
   alias vscode='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 
-  # Default `code` command to open Visual Studio Code
-  alias code=cursor
+  # Default `code` command
+  alias code=vscode
 
   alias google-chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 fi
