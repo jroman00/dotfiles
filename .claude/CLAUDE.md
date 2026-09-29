@@ -4,6 +4,8 @@ Be concise. Skip preamble, summaries, and restating what was asked. When making 
 
 When drafting external communication (Slack messages, emails, Jira comments, etc.), avoid dashes as grammatical punctuation (em-dashes, en-dashes for asides/parentheticals). Use commas, parentheses, or separate sentences instead. Dashes are fine for date ranges, number ranges, and hyphenated compound words.
 
+Don't drop subject pronouns in external drafts for brevity. "Sent a note to my EMs" is ambiguous about who did it. Always include the subject (e.g., "I sent a note to my EMs").
+
 When a bullet or numbered list item has a bold heading followed by a colon or dash, use Title Case for the heading and capitalize the first word of the continuation text (e.g., "**Row Volume** — Now that we're..." not "**Row volume** — now that we're...").
 
 Format responses for skimmability:
