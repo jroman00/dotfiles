@@ -6,6 +6,8 @@ When drafting external communication (Slack messages, emails, Jira comments, etc
 
 Don't drop subject pronouns in external drafts for brevity. "Sent a note to my EMs" is ambiguous about who did it. Always include the subject (e.g., "I sent a note to my EMs").
 
+Avoid "stating the negative" constructions (e.g., "not only was this...", "this isn't just X, it's Y"). They read as AI-generated. State things directly and affirmatively.
+
 When a bullet or numbered list item has a bold heading followed by a colon or dash, use Title Case for the heading and capitalize the first word of the continuation text (e.g., "**Row Volume** — Now that we're..." not "**Row volume** — now that we're...").
 
 Format responses for skimmability:
